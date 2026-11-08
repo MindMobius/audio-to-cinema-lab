@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact reference scene, including all objects, colors and physical geometry.
+
+summary:
+One continuous photographic shot of an unoccupied environment. After rain, a small lived-in Japanese coastal city at blue hour. Slate blue and grey shadows, dark wet pavement, restrained cream and amber practical lights, subdued natural skin. No saturated neon. Quiet, spacious, gently melancholic.
+
+detailed_description:
+[Shot 1] The single strip of translucent photographic negative sways gently in the small current of air from the open window. It stays attached at the same top point and bends as a real flexible strip, with its perforations and frame divisions remaining intact. Soft blue outdoor light and amber indoor light remain constant. The background remains the same empty room and window. The shot starts in this exact scene and remains there. Real small environmental motion, coherent perspective and fine photographic texture. The image fills the full frame. No edits, transitions, titles or watermark.
+
+overall_soundscape:
+Soft environmental room tone only.

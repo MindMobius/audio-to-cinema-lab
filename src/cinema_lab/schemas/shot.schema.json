@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MindMobius/audio-to-cinema-lab/schemas/shot.schema.json",
+  "title": "Audio to Cinema Shot",
+  "type": "object",
+  "required": ["id", "audio_interval", "intent", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "audio_interval": {"type": "object", "required": ["start_frame", "end_frame", "fps"], "properties": {"start_frame": {"type": "integer", "minimum": 0}, "end_frame": {"type": "integer", "minimum": 1}, "fps": {"type": "number", "exclusiveMinimum": 0}}},
+    "intent": {"type": "object", "required": ["frame_prompt", "action_prompt"], "properties": {"frame_prompt": {"type": "string"}, "action_prompt": {"type": "string"}}},
+    "asset_refs": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["planned", "generated", "selected", "rejected", "needs-review"]},
+    "outputs": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}

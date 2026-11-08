@@ -1,0 +1,9 @@
+subject_definitions:
+<Picture 1> is the facial identity and hairstyle reference for the adult man. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
+<Picture 3> is the facial identity and hairstyle reference for the adult woman. <Picture 4> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 2>.
+
+summary:
+A single realistic horizontal photograph from a quiet romantic film, natural materials and skin, physically coherent scene. The entire canvas is photographic content.
+
+detailed_description:
+[Shot 1] An intimate candid SIDE VIEW of the same couple seated on a weathered wooden bench, watching the sea to the LEFT. The camera observes quietly from their RIGHT SIDE, never in front of their faces. Man in beige linen suit sits farther from camera; woman in cream knit and brown plaid skirt sits nearest camera and gently rests her temple on his shoulder. Her recognizable face is in natural three-quarter profile, eyes lowered; his face is a soft profile looking out to sea. NEITHER person looks toward the camera or poses for a photograph. Their bodies and faces remain separate. Only their own hands rest loosely in their laps. Warm backlight and pale sea bokeh. Medium close 50mm photographic composition filling the entire image.

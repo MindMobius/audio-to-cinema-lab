@@ -1,0 +1,9 @@
+subject_definitions:
+<Picture 1> is the facial identity and hairstyle reference for the adult man. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
+
+summary:
+A frame from an understated contemporary Japanese romantic feature film. Real live-action photographic cinematography, naturally imperfect skin and fabric, soft optical halation, subtle fine 35mm grain, restrained exposure and color, no HDR or over-sharpening. Thoughtful off-center composition with foreground depth and negative space. Quiet observational camera, plausible physical space, no beauty advertising, no studio or character sheet, no collage, no illustration, no CGI. No text, letters, subtitles, signage, watermarks, logos, or black bars. Keep the supplied adult identities and exact wardrobes while replacing the studio setting completely.
+A remembered afternoon in the same Japanese coastal town. Soft late-afternoon sunlight, pale blue-green sea, faded olive details, honey-colored wood, warm cream skin, delicate golden backlight. Warm but realistic, not orange-tinted or sepia.
+
+detailed_description:
+[Shot 1] Medium shot of the man in beige linen suit beside the same harbor stone railing, pale blue-green sea behind him. A small silver-and-black rangefinder camera hangs from a narrow black neck strap at his chest. Both hands relaxed, one loosely touching the camera body. He looks toward a companion just beside the lens. 50mm lens, warm backlight. This is a single still opening frame of one continuous movie shot. Keep the scene specific and lived-in. Use all identity and wardrobe references only for their assigned people. A coherent photographic composition, no panel layout, no split screen.

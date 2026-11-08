@@ -1,0 +1,8 @@
+subject_definitions:
+<Picture 1> is the exact opening movie frame. Preserve this single adult woman's facial identity, long dark hair, sleeveless black dress, small ivory neck scarf, seat and train window. No change of face, outfit, location or lighting style.
+summary:
+One continuous quiet live-action cinematic shot inside a moving city train. A young adult woman sits at the rain-streaked window, looking outside in reflective silence. Natural film acting, not a posed photograph.
+detailed_description:
+[Shot 1] Start exactly from Picture 1. The train keeps moving gently: the blue-grey city outside the window drifts continuously from right to left, light reflections move across the wet glass and softly over her face. She breathes naturally, blinks twice, very slowly shifts her gaze from the far buildings down toward the window reflection, and lets out a small quiet breath. Her lips stay closed; she does not sing or speak. A few strands of dark hair sway with the train vibration. Her upper body stays seated and anatomically stable. The camera makes a restrained, very slow 10-centimeter push toward her face over the entire shot. No sudden head turn, no smile to camera, no extra hands. Preserve the exact face and costume. True moving video, no freeze-frame, no static image pan, no internal cuts, no dissolve, no transitions, no text or watermark. Soft 35mm film texture, cinematic blue-grey shadows, natural warm skin, subtle practical light.
+overall_soundscape:
+Very quiet train ambience only. No music, no speech, no vocals.

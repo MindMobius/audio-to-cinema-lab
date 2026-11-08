@@ -1,0 +1,8 @@
+subject_definitions:
+There are NO visible people in this shot. Build the described real-world environment and props; do not insert faces, characters, or written text.
+
+summary:
+A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
+
+detailed_description:
+[Shot 1] A single horizontal macro photograph, filling the entire canvas. One narrow vertical strip of dark translucent 35mm photographic negative hangs freely just left of center in a room beside an open window. Several small unrecognizable image frames and perforations visible. Out-of-focus blue twilight window and amber room wall completely fill the background from edge to edge. A tiny breeze bends the flexible negative gently. Shallow depth of field, natural optical bokeh, no people, no hands, no readable words, no bars or borders.

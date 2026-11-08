@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact fixed composition and sole photographic negative strip. The beginning and ending photographs have the same scene and object positions.
+
+summary:
+One locked-off tripod shot of a single hanging photographic negative strip in front of an open window, filling the whole canvas with a realistic photographic image.
+
+detailed_description:
+[Shot 1] Keep the composition absolutely fixed. The one narrow vertical film strip hangs from a fixed point just above the top center of the image, and remains clearly visible in the same central region during every frame of this shot. Its bottom edge sways very gently from side to side, by less than its own narrow width, while its top remains attached. The perforations and photographic frame divisions stay intact. The window, walls and distant exterior remain fixed. The light stays steady. Maintain focus on the film strip for the entire clip. No camera translation, zoom or focus change. No edits or transitions. The same single physical strip stays visible throughout.
+
+overall_soundscape:
+Quiet room tone.

@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact reference scene, including all objects, colors and physical geometry.
+
+summary:
+One continuous photographic shot of an unoccupied environment. A clear morning after rain in the same coastal town. Gentle pale-gold sun, airy blue sky and sea, muted green leaves, light cream highlights, natural skin. Calm, hopeful, open space.
+
+detailed_description:
+[Shot 1] The camera moves gently forward along this empty coastal walking path. Small wind-driven waves ripple on the sea to the left, fine grasses and white wildflowers sway to the right. The low stone wall and distant coastal town keep their realistic geometry. The path remains unoccupied throughout the entire shot. Morning illumination stays steady. The shot starts in this exact scene and remains there. Real small environmental motion, coherent perspective and fine photographic texture. The image fills the full frame. No edits, transitions, titles or watermark.
+
+overall_soundscape:
+Soft environmental room tone only.

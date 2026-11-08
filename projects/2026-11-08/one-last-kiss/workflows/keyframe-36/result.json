@@ -1,0 +1,12 @@
+{
+  "id": "keyframe-36",
+  "prompt_id": "724d7477-5d74-4df0-8ac9-e8e4f97956f7",
+  "outputs": [
+    {
+      "source": "${LOCAL_PROJECT_ROOT}/author-reproduction-20261106/output/one-last-kiss/keyframe-36_00001_.png",
+      "path": "keyframes/keyframe-36.png"
+    }
+  ],
+  "generation_seconds": 13.828,
+  "status": "generated_pending_review"
+}

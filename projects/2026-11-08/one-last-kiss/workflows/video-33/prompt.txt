@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact reference scene, including all objects, colors and physical geometry.
+
+summary:
+One continuous photographic shot of an unoccupied environment. A clear morning after rain in the same coastal town. Gentle pale-gold sun, airy blue sky and sea, muted green leaves, light cream highlights, natural skin. Calm, hopeful, open space.
+
+detailed_description:
+[Shot 1] The silver-and-black rangefinder camera, two pale cinema tickets and closed photo book remain in their exact positions on the quiet wooden table. Morning light softly brightens the objects. A few dust specks float in the shaft of light. Slowly rack focus from the tickets to the camera lens. The setting remains an unoccupied still life throughout. The shot starts in this exact scene and remains there. Real small environmental motion, coherent perspective and fine photographic texture. The image fills the full frame. No edits, transitions, titles or watermark.
+
+overall_soundscape:
+Soft environmental room tone only.

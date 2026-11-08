@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MindMobius/audio-to-cinema-lab/schemas/render-manifest.schema.json",
+  "title": "Render Manifest",
+  "type": "object",
+  "required": ["revision", "renderer", "status", "outputs", "checks"],
+  "properties": {
+    "revision": {"type": "string"},
+    "renderer": {"type": "object", "required": ["name", "version"], "properties": {"name": {"type": "string"}, "version": {"type": "string"}}},
+    "status": {"enum": ["planned", "rendered", "verified", "failed"]},
+    "outputs": {"type": "array", "items": {"type": "object"}},
+    "checks": {"type": "object", "additionalProperties": {"type": "boolean"}}
+  },
+  "additionalProperties": true
+}

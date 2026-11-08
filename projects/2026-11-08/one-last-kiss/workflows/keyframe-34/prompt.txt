@@ -1,0 +1,9 @@
+subject_definitions:
+<Picture 1> is the facial identity and hairstyle reference for the adult woman. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
+
+summary:
+A frame from an understated contemporary Japanese romantic feature film. Real live-action photographic cinematography, naturally imperfect skin and fabric, soft optical halation, subtle fine 35mm grain, restrained exposure and color, no HDR or over-sharpening. Thoughtful off-center composition with foreground depth and negative space. Quiet observational camera, plausible physical space, no beauty advertising, no studio or character sheet, no collage, no illustration, no CGI. No text, letters, subtitles, signage, watermarks, logos, or black bars. Keep the supplied adult identities and exact wardrobes while replacing the studio setting completely.
+A clear morning after rain in the same coastal town. Gentle pale-gold sun, airy blue sky and sea, muted green leaves, light cream highlights, natural skin. Calm, hopeful, open space.
+
+detailed_description:
+[Shot 1] Very wide seaside jetty shot at first light. The woman in black dress and ivory scarf stands alone on the LEFT third near the end of a broad safe stone promenade, several feet from the edge, facing the sea. Her whole body and boots visible, no railing or danger action. Open pale sky, calm water, distant coastal houses. 35mm lens. This is a single still opening frame of one continuous movie shot. Keep the scene specific and lived-in. Use all identity and wardrobe references only for their assigned people. A coherent photographic composition, no panel layout, no split screen.

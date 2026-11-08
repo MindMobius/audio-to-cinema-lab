@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audio-to-cinema-lab"
+version = "0.1.0"
+description = "Audio-driven video projects, portable asset manifests and replaceable production adapters"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+dependencies = ["jsonschema>=4.23,<5",
+  "referencing>=0.35,<1"]
+
+[project.scripts]
+cinema-lab = "cinema_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cinema_lab = ["schemas/*.json", "templates/hyperframes/*.html"]

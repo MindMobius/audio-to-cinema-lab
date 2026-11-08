@@ -1,0 +1,10 @@
+subject_definitions:
+<Picture 1> is the facial identity and hairstyle reference for the adult man. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
+
+<Picture 3> is ONLY a prop reference: preserve the same small silver-and-black 35mm rangefinder camera, dark circular lens and narrow black strap, and the pale ticket paper. Do not copy its window, setting, composition or lighting. No person comes from this prop reference.
+
+summary:
+A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
+
+detailed_description:
+[Shot 1] One horizontal landscape photograph of an adult man in the exact black knitted polo shirt from the references sitting at a small wooden table in a modest apartment at dusk. Close medium composition from the side, his face clearly visible on the right third. His hands rest on a dark closed photo book on the table beside a silver-and-black rangefinder camera. The rainy coastal street outside the window fills the left half. Detailed room wall and window frame extend all the way to the top edge; table and floor extend to the bottom edge. Soft warm desk lamp and cool blue exterior, realistic quiet exposure, no borders or mattes.

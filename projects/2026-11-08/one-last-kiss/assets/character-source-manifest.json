@@ -1,0 +1,246 @@
+{
+  "name": "双角色 · 六套着装人物资产树",
+  "created": "2026-11-08",
+  "source_project": "hongye007/open-pose-costume",
+  "source_revision": "578461c575987ef1a4223fdac3144692d1c123e6",
+  "workflow": "Author H3 four-view character-card workflow adapted to local ComfyUI",
+  "model": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+  "lora": {
+    "model": [
+      "1",
+      0
+    ],
+    "lora_name": "H3/MysticXXX_MMH3-V4-ref2va.safetensors",
+    "strength_model": 0.5
+  },
+  "sampling": {
+    "steps": 10,
+    "sampler": "euler",
+    "scheduler": "beta",
+    "frames": 56,
+    "fps": 24,
+    "width": 768,
+    "height": 1344,
+    "ref_image_size": "max"
+  },
+  "characters": [
+    {
+      "id": "male_01",
+      "label": "男角色 M01",
+      "identity_code": "UCM-003",
+      "identity_description": "the adult man in Picture 1, about 28 years old, with the identical face shape, eyes, nose, lips, skin tone, black naturally center-parted hair, clean-shaven face and calm neutral expression; keep a consistent lean adult body with natural proportions, approximately 178 cm tall",
+      "outfits": [
+        {
+          "id": "look_01",
+          "label": "黑色针织 Polo",
+          "source_code": "MC-002",
+          "description": "black ribbed long-sleeved knitted polo with an open collar, black straight tailored trousers, black leather loafers and a black watch on the left wrist. Reproduce the outfit in Picture 2; both shoes are worn on the feet",
+          "status": "reviewed_and_delivered",
+          "workflow": "workflows/male_01_look_01.api.json",
+          "output_prefix": "H3/character_asset_tree/male_01_look_01",
+          "source_file": "sources/MC-002.png",
+          "width": 768,
+          "height": 1344,
+          "seed": 2026110800,
+          "prompt_id": "f741c499-0663-4a11-95e5-9c651a0953a4",
+          "video": "characters/male_01/look_01/source.mp4",
+          "contact_sheet": "characters/male_01/look_01/contact-sheet.jpg",
+          "reported_wall_seconds": 159.757,
+          "views": {
+            "portrait": "characters/male_01/look_01/views/portrait.png",
+            "front": "characters/male_01/look_01/views/front.png",
+            "side": "characters/male_01/look_01/views/side.png",
+            "back": "characters/male_01/look_01/views/back.png"
+          },
+          "card": "characters/male_01/look_01/asset-card.png",
+          "preview": "characters/male_01/look_01/asset-card-preview.jpg",
+          "selection": "characters/male_01/look_01/selection.json",
+          "review_notes": [
+            "Original take frames with ghosted hands and oblique full-body pose were excluded.",
+            "All full-body views use attempt 02, which gives a square frontal pose.",
+            "The portrait uses take 01 because take 02 incorrectly retained the T-shirt from the identity reference.",
+            "The selected images have matching black polo, trousers and loafers."
+          ]
+        },
+        {
+          "id": "look_02",
+          "label": "米色亚麻西装",
+          "source_code": "MW-001",
+          "description": "beige linen single-breasted blazer with notch lapels, matching beige straight wide-leg trousers, an open-collar cream shirt tucked into the trousers, and dark brown leather shoes. Reproduce the linen material and warm neutral colors of Picture 2",
+          "status": "reviewed_and_delivered",
+          "workflow": "workflows/male_01_look_02.api.json",
+          "output_prefix": "H3/character_asset_tree/male_01_look_02",
+          "source_file": "sources/MW-001.png",
+          "width": 768,
+          "height": 1344,
+          "seed": 2026110801,
+          "prompt_id": "18e6ad9a-ca2f-4925-84bb-d3ad49749a2a",
+          "video": "characters/male_01/look_02/source.mp4",
+          "contact_sheet": "characters/male_01/look_02/contact-sheet.jpg",
+          "reported_wall_seconds": 154.942,
+          "views": {
+            "portrait": "characters/male_01/look_02/views/portrait.png",
+            "front": "characters/male_01/look_02/views/front.png",
+            "side": "characters/male_01/look_02/views/side.png",
+            "back": "characters/male_01/look_02/views/back.png"
+          },
+          "card": "characters/male_01/look_02/asset-card.png",
+          "preview": "characters/male_01/look_02/asset-card-preview.jpg",
+          "selection": "characters/male_01/look_02/selection.json",
+          "review_notes": [
+            "Full head and both shoes visible in all full-body views.",
+            "No visible motion ghosting in selected images.",
+            "Shirt hem is worn untucked in the generated result."
+          ]
+        },
+        {
+          "id": "look_03",
+          "label": "黑色正式礼服",
+          "source_code": "MC-001",
+          "description": "black tuxedo jacket with satin shawl lapels, matching black tailored trousers, a crisp white dress shirt, a black bow tie, and polished black leather Chelsea ankle boots. Reproduce the complete formal outfit shown in Picture 2",
+          "status": "reviewed_and_delivered",
+          "workflow": "workflows/male_01_look_03.api.json",
+          "output_prefix": "H3/character_asset_tree/male_01_look_03",
+          "source_file": "sources/MC-001.png",
+          "width": 768,
+          "height": 1344,
+          "seed": 2026110802,
+          "prompt_id": "8e0ef8b0-c84e-4e5c-b5d5-1bc9cb0d6f37",
+          "video": "characters/male_01/look_03/source.mp4",
+          "contact_sheet": "characters/male_01/look_03/contact-sheet.jpg",
+          "reported_wall_seconds": 365.4,
+          "views": {
+            "portrait": "characters/male_01/look_03/views/portrait.png",
+            "front": "characters/male_01/look_03/views/front.png",
+            "side": "characters/male_01/look_03/views/side.png",
+            "back": "characters/male_01/look_03/views/back.png"
+          },
+          "card": "characters/male_01/look_03/asset-card.png",
+          "preview": "characters/male_01/look_03/asset-card-preview.jpg",
+          "selection": "characters/male_01/look_03/selection.json",
+          "review_notes": [
+            "Front, profile and rear are clean, full-height and static.",
+            "Selected images retain the same hairstyle, tuxedo, bow tie and Chelsea boots."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "female_01",
+      "label": "女角色 F01",
+      "identity_code": "UCF-009",
+      "identity_description": "the adult woman in Picture 1, about 26 years old, with the identical face shape, brown-grey eyes, nose, lips, fair skin tone and long naturally parted dark-brown hair with soft waves; preserve the same subtle closed-mouth smile and a consistent slim adult body with natural proportions, approximately 167 cm tall",
+      "outfits": [
+        {
+          "id": "look_01",
+          "label": "奶白针织与格纹裙",
+          "source_code": "ST-004",
+          "description": "a fitted cream long-sleeved knit top with a square neckline edged in dark brown and a small brown tie, a brown plaid tiered short skirt, cream socks, brown knee-high leather boots, small gold earrings and a fine gold pendant necklace. The hairstyle remains exactly as in Picture 1. Omit the separate handbag and separate hair bow from the flat-lay reference so the hands stay empty and hair stays unchanged",
+          "status": "reviewed_and_delivered",
+          "workflow": "workflows/female_01_look_01.api.json",
+          "output_prefix": "H3/character_asset_tree/female_01_look_01",
+          "source_file": "sources/ST-004.png",
+          "width": 768,
+          "height": 1344,
+          "seed": 2026110810,
+          "prompt_id": "d87c6a72-e8e5-40cd-b61c-f86d93d1f9d1",
+          "video": "characters/female_01/look_01/source.mp4",
+          "contact_sheet": "characters/female_01/look_01/contact-sheet.jpg",
+          "reported_wall_seconds": 83.607,
+          "views": {
+            "portrait": "characters/female_01/look_01/views/portrait.png",
+            "front": "characters/female_01/look_01/views/front.png",
+            "side": "characters/female_01/look_01/views/side.png",
+            "back": "characters/female_01/look_01/views/back.png"
+          },
+          "card": "characters/female_01/look_01/asset-card.png",
+          "preview": "characters/female_01/look_01/asset-card-preview.jpg",
+          "selection": "characters/female_01/look_01/selection.json",
+          "review_notes": [
+            "Complete framing, matching cream knit, plaid skirt, socks and brown boots.",
+            "Handbag and separate hair bow intentionally omitted.",
+            "Rear and side hair is straighter than the source portrait; face reference is preserved."
+          ]
+        },
+        {
+          "id": "look_02",
+          "label": "浅蓝西装裙套装",
+          "source_code": "ST-011",
+          "description": "a light periwinkle-blue pinstripe tailored blazer and matching short skirt with silver star-shaped crystal embellishments, a matching blue inner top, the narrow cream-and-black neck scarf, and cream-white knee-high boots. Reproduce the garments and boots in Picture 2. Omit the separate black handbag; hands remain empty",
+          "status": "reviewed_and_delivered",
+          "workflow": "workflows/female_01_look_02.api.json",
+          "output_prefix": "H3/character_asset_tree/female_01_look_02",
+          "source_file": "sources/ST-011.png",
+          "width": 768,
+          "height": 1344,
+          "seed": 2026110811,
+          "prompt_id": "9b112802-042e-4152-a9e1-3f93e6438c8c",
+          "video": "characters/female_01/look_02/source.mp4",
+          "contact_sheet": "characters/female_01/look_02/contact-sheet.jpg",
+          "reported_wall_seconds": 86.344,
+          "views": {
+            "portrait": "characters/female_01/look_02/views/portrait.png",
+            "front": "characters/female_01/look_02/views/front.png",
+            "side": "characters/female_01/look_02/views/side.png",
+            "back": "characters/female_01/look_02/views/back.png"
+          },
+          "card": "characters/female_01/look_02/asset-card.png",
+          "preview": "characters/female_01/look_02/asset-card-preview.jpg",
+          "selection": "characters/female_01/look_02/selection.json",
+          "review_notes": [
+            "Full framing and coherent light-blue pinstripe suit, star embellishments, scarf and cream boots.",
+            "Handbag intentionally omitted; the rear embellishments are generated completions.",
+            "Side view is a natural photographic profile, not a calibrated orthographic projection."
+          ]
+        },
+        {
+          "id": "look_03",
+          "label": "黑裙与奶白丝巾",
+          "source_code": "ST-003",
+          "description": "a fitted sleeveless black A-line mini dress, an ivory silk scarf tied at the neck with the ends lying down the chest, and black leather knee-high boots. Reproduce the garments and boots in Picture 2. Omit the separate black handbag; hands remain empty",
+          "status": "reviewed_and_delivered",
+          "workflow": "workflows/female_01_look_03.api.json",
+          "output_prefix": "H3/character_asset_tree/female_01_look_03",
+          "source_file": "sources/ST-003.png",
+          "width": 768,
+          "height": 1344,
+          "seed": 2026110812,
+          "prompt_id": "7b1aafe8-74c4-4f5c-bdf4-420bd7c1ccbd",
+          "video": "characters/female_01/look_03/source.mp4",
+          "contact_sheet": "characters/female_01/look_03/contact-sheet.jpg",
+          "reported_wall_seconds": 97.489,
+          "views": {
+            "portrait": "characters/female_01/look_03/views/portrait.png",
+            "front": "characters/female_01/look_03/views/front.png",
+            "side": "characters/female_01/look_03/views/side.png",
+            "back": "characters/female_01/look_03/views/back.png"
+          },
+          "card": "characters/female_01/look_03/asset-card.png",
+          "preview": "characters/female_01/look_03/asset-card-preview.jpg",
+          "selection": "characters/female_01/look_03/selection.json",
+          "review_notes": [
+            "All four views use attempt 02; the first take was excluded because its full-body frontal shot was oblique.",
+            "Full head, dress hem, hands and boots visible.",
+            "Matching neck scarf, black dress and black boots retained across the four selected images."
+          ]
+        }
+      ]
+    }
+  ],
+  "delivery": {
+    "cards": 6,
+    "views": 24,
+    "view_dimensions": [
+      768,
+      1344
+    ],
+    "card_dimensions": [
+      3264,
+      1584
+    ],
+    "overview": "asset-tree-overview.png",
+    "gallery": "index.html",
+    "package": "character-asset-tree-6-cards.zip",
+    "built_at": "2026-11-08T14:19:19.624240+08:00"
+  }
+}

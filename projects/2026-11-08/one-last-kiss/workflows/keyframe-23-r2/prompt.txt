@@ -1,0 +1,9 @@
+subject_definitions:
+<Picture 1> is the facial identity and hairstyle reference for the adult man. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
+<Picture 3> is the facial identity and hairstyle reference for the adult woman. <Picture 4> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 2>.
+
+summary:
+A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
+
+detailed_description:
+[Shot 1] A horizontal full-canvas photograph of an intimate old neighborhood screening room. The detailed wood-paneled ceiling reaches the top edge of the image; burgundy velvet seat backs reach the bottom edge. The adult man in the exact black tuxedo and bow tie from references sits on the left and the adult woman in the exact black sleeveless dress and ivory scarf from references sits on the right, in the same row with exactly one empty seat between them. Both are shown from their waist up at medium distance, enough to see their faces. They look toward an off-camera screen, thoughtful and quiet, never at the camera. Soft pale projection light on their faces, amber wall sconces, muted burgundy velvet. Landscape 35mm photograph, no border or letterboxing.

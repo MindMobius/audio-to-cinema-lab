@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact reference scene, including all objects, colors and physical geometry.
+
+summary:
+One continuous photographic shot of an unoccupied environment. After rain, a small lived-in Japanese coastal city at blue hour. Slate blue and grey shadows, dark wet pavement, restrained cream and amber practical lights, subdued natural skin. No saturated neon. Quiet, spacious, gently melancholic.
+
+detailed_description:
+[Shot 1] The vacant cafe stays vacant for the entire shot. Exactly one small cup rests on the same table between the same two unoccupied wooden chairs. The furniture, cup, table surface and interior remain in exactly the same physical positions. Cars outside the window drive along the wet street, sending soft moving light over the glass; fine raindrops move down the glass. Locked-off camera, soft natural exposure. Every part of the indoor space remains unoccupied in every frame. The shot starts in this exact scene and remains there. Real small environmental motion, coherent perspective and fine photographic texture. The image fills the full frame. No edits, transitions, titles or watermark.
+
+overall_soundscape:
+Soft environmental room tone only.

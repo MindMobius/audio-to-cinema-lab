@@ -1,0 +1,8 @@
+subject_definitions:
+There are NO visible people in this shot. Build the described real-world environment and props; do not insert faces, characters, or written text.
+
+summary:
+A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
+
+detailed_description:
+[Shot 1] A single horizontal wide-angle landscape photograph of an open coastal walking path in gentle morning sunlight. A low weathered stone wall and blue-green sea on the left, muted green grasses and small white wildflowers on the right. The path recedes toward a modest bright seaside town. Detailed pale sky fills the top edge of the canvas, foreground pathway and grasses fill the bottom edge. Natural atmosphere, calm open space, realistic 28mm photography. No people, no vehicles, no text, no matte, no border.

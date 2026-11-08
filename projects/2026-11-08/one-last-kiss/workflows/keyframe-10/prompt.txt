@@ -1,0 +1,9 @@
+subject_definitions:
+There are NO visible people in this shot. Build the described real-world environment and props; do not insert faces, characters, or written text.
+
+summary:
+A frame from an understated contemporary Japanese romantic feature film. Real live-action photographic cinematography, naturally imperfect skin and fabric, soft optical halation, subtle fine 35mm grain, restrained exposure and color, no HDR or over-sharpening. Thoughtful off-center composition with foreground depth and negative space. Quiet observational camera, plausible physical space, no beauty advertising, no studio or character sheet, no collage, no illustration, no CGI. No text, letters, subtitles, signage, watermarks, logos, or black bars. Keep the supplied adult identities and exact wardrobes while replacing the studio setting completely.
+After rain, a small lived-in Japanese coastal city at blue hour. Slate blue and grey shadows, dark wet pavement, restrained cream and amber practical lights, subdued natural skin. No saturated neon. Quiet, spacious, gently melancholic.
+
+detailed_description:
+[Shot 1] Wide shot of the SAME small cafe table beside a faded olive window frame, now empty at blue hour. Two unoccupied wooden chairs face each other, one cream cup left on the table, faint circular cup mark where the other cup stood. A dim amber interior light and rain-blue window. 35mm lens, composition recalls a couple having sat here. This is a single still opening frame of one continuous movie shot. Keep the scene specific and lived-in. Use all identity and wardrobe references only for their assigned people. A coherent photographic composition, no panel layout, no split screen.

@@ -1,0 +1,8 @@
+subject_definitions:
+<Picture 1> is the facial identity and hairstyle reference for the adult man. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
+
+summary:
+A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
+
+detailed_description:
+[Shot 1] A single horizontal landscape photograph, filling the whole canvas from edge to edge. The adult man in his exact black knit polo and black trousers is walking away through a short and WIDE tiled pedestrian underpass toward an open view of the pale morning sea. His full body is visible slightly left of center, medium-wide distance. The ceiling occupies the top edge, tiled walls occupy both side edges and the wet concrete floor fills the bottom edge. Cool reflected light inside, gentle warm dawn beyond the exit. Ordinary realistic walking pose, no other people, no frame or black side borders.

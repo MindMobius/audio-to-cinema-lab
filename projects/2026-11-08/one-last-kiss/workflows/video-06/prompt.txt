@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact opening movie frame. Preserve every visible person's adult identity, face, hair, proportions and exact clothing. Preserve the physical layout, recurring props, time of day and photographic appearance. Do not copy the picture as a frozen still; animate the described real action within this same scene.
+
+summary:
+One continuous live-action movie shot, quiet natural human acting, physically plausible movement. A remembered afternoon in the same Japanese coastal town. Soft late-afternoon sunlight, pale blue-green sea, faded olive details, honey-colored wood, warm cream skin, delicate golden backlight. Warm but realistic, not orange-tinted or sepia.
+
+detailed_description:
+[Shot 1] Start exactly from Picture 1. He watches his companion with an easy closed-mouth smile, blinks and tilts his head a little, then lowers his gaze with a quiet amused breath. No talking. Restrained handheld camera drift, stable facial identity. The whole clip stays in this one scene. No internal cuts or transitions, no change of costume, no new facial identity, no extra limbs, no warped hands, no duplicated people. Skin, hair and clothes move naturally and retain fine photographic texture. Camera motion is subtle and physically smooth. No subtitles, words, logos or watermark. No artificial image-pan effect, no freeze frame.
+
+overall_soundscape:
+Quiet environmental room tone only. All people are silent. No speech, no singing, no music.

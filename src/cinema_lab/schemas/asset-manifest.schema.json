@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MindMobius/audio-to-cinema-lab/schemas/asset-manifest.schema.json",
+  "title": "Creative Asset Manifest",
+  "type": "object",
+  "required": ["id", "kind", "status", "provenance"],
+  "properties": {
+    "id": {"type": "string"},
+    "kind": {"enum": ["character", "wardrobe", "scene", "prop", "audio", "image", "video", "font"]},
+    "status": {"enum": ["planned", "generated", "reviewed", "selected", "rejected", "private"]},
+    "provenance": {"type": "object", "required": ["source_policy"], "properties": {"source_policy": {"type": "string"}, "source": {"type": "string"}, "revision": {"type": "string"}}},
+    "files": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,226 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "5": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "lora_name": "minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors",
+      "strength_model": 1.0
+    }
+  },
+  "6": {
+    "class_type": "MiniMaxH3SigmaShift",
+    "inputs": {
+      "model": [
+        "5",
+        0
+      ],
+      "shift_video": 12.0,
+      "shift_audio": 3.0
+    }
+  },
+  "7": {
+    "class_type": "ModelAttentionBackend",
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "attention": "comfy kitchen attention"
+    }
+  },
+  "9": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "one-last-kiss/test-train.png"
+    }
+  },
+  "10": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prompt": "subject_definitions:\n<Picture 1> is the exact opening movie frame. Preserve this single adult woman's facial identity, long dark hair, sleeveless black dress, small ivory neck scarf, seat and train window. No change of face, outfit, location or lighting style.\nsummary:\nOne continuous quiet live-action cinematic shot inside a moving city train. A young adult woman sits at the rain-streaked window, looking outside in reflective silence. Natural film acting, not a posed photograph.\ndetailed_description:\n[Shot 1] Start exactly from Picture 1. The train keeps moving gently: the blue-grey city outside the window drifts continuously from right to left, light reflections move across the wet glass and softly over her face. She breathes naturally, blinks twice, very slowly shifts her gaze from the far buildings down toward the window reflection, and lets out a small quiet breath. Her lips stay closed; she does not sing or speak. A few strands of dark hair sway with the train vibration. Her upper body stays seated and anatomically stable. The camera makes a restrained, very slow 10-centimeter push toward her face over the entire shot. No sudden head turn, no smile to camera, no extra hands. Preserve the exact face and costume. True moving video, no freeze-frame, no static image pan, no internal cuts, no dissolve, no transitions, no text or watermark. Soft 35mm film texture, cinematic blue-grey shadows, natural warm skin, subtle practical light.\noverall_soundscape:\nVery quiet train ambience only. No music, no speech, no vocals.",
+      "width": 1344,
+      "height": 768,
+      "length": 216,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "9",
+        0
+      ]
+    }
+  },
+  "11": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "10",
+        0
+      ],
+      "latent": [
+        "10",
+        1
+      ],
+      "frame_idx": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "9",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "conditioning": [
+        "11",
+        0
+      ]
+    }
+  },
+  "13": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "scheduler": "beta",
+      "steps": 8,
+      "denoise": 1.0
+    }
+  },
+  "14": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "15": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 20261108501
+    }
+  },
+  "16": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "15",
+        0
+      ],
+      "guider": [
+        "12",
+        0
+      ],
+      "sampler": [
+        "14",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ],
+      "latent_image": [
+        "10",
+        1
+      ]
+    }
+  },
+  "17": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "16",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "17",
+        0
+      ],
+      "batch_index": 16,
+      "length": 4096
+    }
+  },
+  "21": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "19",
+        0
+      ],
+      "fps": 24.0,
+      "bit_depth": 8
+    }
+  },
+  "22": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "21",
+        0
+      ],
+      "filename_prefix": "one-last-kiss/video-test-01",
+      "format": "mp4",
+      "format.codec": "h264",
+      "format.codec.encoding": "re-encode",
+      "format.codec.encoding.crf": 15
+    }
+  }
+}

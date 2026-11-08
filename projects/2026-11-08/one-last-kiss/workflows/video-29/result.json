@@ -1,0 +1,12 @@
+{
+  "id": "video-29",
+  "prompt_id": "8993a3f1-3611-4d9c-a59e-f1437669467a",
+  "outputs": [
+    {
+      "source": "${LOCAL_PROJECT_ROOT}/author-reproduction-20261106/output/one-last-kiss/video-29_00001_.mp4",
+      "path": "renders/video-29.mp4"
+    }
+  ],
+  "generation_seconds": 67.606,
+  "status": "generated_pending_review"
+}

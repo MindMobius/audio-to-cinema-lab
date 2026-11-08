@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact opening movie frame. Preserve every visible person's adult identity, face, hair, proportions and exact clothing. Preserve the physical layout, recurring props, time of day and photographic appearance. Do not copy the picture as a frozen still; animate the described real action within this same scene.
+
+summary:
+One continuous live-action movie shot, quiet natural human acting, physically plausible movement. A clear morning after rain in the same coastal town. Gentle pale-gold sun, airy blue sky and sea, muted green leaves, light cream highlights, natural skin. Calm, hopeful, open space.
+
+detailed_description:
+[Shot 1] Start exactly from Picture 1. She takes a quiet breath and her expression slowly eases into a tiny peaceful closed-mouth smile. Natural blink, gentle breeze in the hair. The camera holds on this change without a dramatic push. No crying or singing. The whole clip stays in this one scene. No internal cuts or transitions, no change of costume, no new facial identity, no extra limbs, no warped hands, no duplicated people. Skin, hair and clothes move naturally and retain fine photographic texture. Camera motion is subtle and physically smooth. No subtitles, words, logos or watermark. No artificial image-pan effect, no freeze frame.
+
+overall_soundscape:
+Quiet environmental room tone only. All people are silent. No speech, no singing, no music.

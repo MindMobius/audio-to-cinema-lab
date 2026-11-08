@@ -1,0 +1,11 @@
+subject_definitions:
+<Picture 1> is the exact reference scene, including all objects, colors and physical geometry.
+
+summary:
+One continuous photographic shot of an unoccupied environment. A remembered afternoon in the same Japanese coastal town. Soft late-afternoon sunlight, pale blue-green sea, faded olive details, honey-colored wood, warm cream skin, delicate golden backlight. Warm but realistic, not orange-tinted or sepia.
+
+detailed_description:
+[Shot 1] The silver-and-black rangefinder camera and two pale tickets remain on the same wooden cafe table in the afternoon sunlight. A mild breeze lifts one corner of a ticket by a few millimeters and lays it back. The sea beyond the window has small ripples. Slow subtle focus shift toward the tickets. Only these physical objects and the empty background are shown for the whole shot. The shot starts in this exact scene and remains there. Real small environmental motion, coherent perspective and fine photographic texture. The image fills the full frame. No edits, transitions, titles or watermark.
+
+overall_soundscape:
+Soft environmental room tone only.
