@@ -27,6 +27,11 @@ node_modules/
 *.mp3
 *.wav
 *.flac
+*.ncm
+*.lrc
 *.zip
 .DS_Store
 Thumbs.db
+
+# Private source music and lyric files
+/source/music/

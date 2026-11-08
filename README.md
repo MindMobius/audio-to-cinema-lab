@@ -58,6 +58,19 @@ pip install -e .
 python -m cinema_lab validate projects/2026-11-08/one-last-kiss
 ```
 
+如果本机音频源是网易云音乐的 `.ncm` 容器，先通过音频输入适配器恢复成
+MP3/FLAC，再进入 ASR 和音乐分析。源文件和解码结果都留在被 Git 忽略的本地
+目录中：
+
+```bash
+.venv/bin/python -m cinema_lab audio ncm inspect source/music
+.venv/bin/python -m cinema_lab audio ncm decode source/music \
+  --output .local/audio/ncm-decoded --include-cover
+```
+
+每次批处理会生成 JSON receipt，记录 NCM 元数据、输入输出哈希、耗时和失败项。
+详细边界和上游署名见 [`adapters/audio-decoding/README.md`](adapters/audio-decoding/README.md)。
+
 工具适配器需要在本机配置对应环境，例如 ComfyUI API、Whisper、HyperFrames CLI 或 FFmpeg。适配器必须在输出中记录版本、输入哈希、参数、耗时和生成结果；没有真实执行的内容不能写成“已复现”。
 
 ## 工具定位

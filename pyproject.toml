@@ -9,8 +9,11 @@ description = "Audio-driven video projects, portable asset manifests and replace
 readme = "README.md"
 requires-python = ">=3.11"
 license = {file = "LICENSE"}
-dependencies = ["jsonschema>=4.23,<5",
-  "referencing>=0.35,<1"]
+dependencies = [
+  "cryptography>=41,<46",
+  "jsonschema>=4.23,<5",
+  "referencing>=0.35,<1",
+]
 
 [project.scripts]
 cinema-lab = "cinema_lab.cli:main"
