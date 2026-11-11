@@ -8,6 +8,7 @@ from pathlib import Path
 from .media import audit, restore
 from .ncm import decode_many, inspect_file, collect_ncm_files
 from .project import create, validate
+from .recipes import RECIPE_IDS
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
@@ -21,7 +22,7 @@ def cmd_validate(args: argparse.Namespace) -> int:
 
 
 def cmd_init(args: argparse.Namespace) -> int:
-    path = create(Path(args.root), args.date, args.slug, args.title, args.kind)
+    path = create(Path(args.root), args.date, args.slug, args.title, args.kind, recipe=args.recipe)
     print(path)
     return 0
 
@@ -74,7 +75,8 @@ def main(argv: list[str] | None = None) -> int:
     validate_parser.set_defaults(func=cmd_validate)
 
     init = sub.add_parser("init", help="create an empty dated project")
-    init.add_argument("--root", default="projects")
+    init.add_argument("--root", default=".local/projects")
+    init.add_argument("--recipe", choices=RECIPE_IDS, help="copy a production recipe; does not generate media")
     init.add_argument("--date", required=True)
     init.add_argument("--slug", required=True)
     init.add_argument("--title", required=True)

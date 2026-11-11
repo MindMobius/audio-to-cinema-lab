@@ -1,9 +1,0 @@
-{
-  "filename": "one-last-kiss-original.m4a",
-  "source_policy": "private-local",
-  "duration_seconds": 259.199833,
-  "sample_rate": 48000,
-  "channels": 2,
-  "sha256": "c421907ca40c324f3ba6c90bcf06c41879b97a549ee9452eab5beffaeb95fc3e",
-  "restore_hint": "Run cinema-lab media restore with --profile audio and the original production directory. The source recording is restored into ignored .local/media/audio/."
-}

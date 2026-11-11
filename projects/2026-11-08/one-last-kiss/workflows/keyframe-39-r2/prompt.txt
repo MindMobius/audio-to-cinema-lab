@@ -1,8 +1,0 @@
-subject_definitions:
-<Picture 1> is the facial identity and hairstyle reference for the adult woman. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
-
-summary:
-A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
-
-detailed_description:
-[Shot 1] A single horizontal landscape photograph, the full canvas filled with a quiet seaside promenade at sunrise. The same adult woman in the light periwinkle suit and cream boots walks away from the camera on the right half, seen from behind with her whole body visible at medium-wide distance, approximately one third of image height. Long dark hair down her back. A low stone seawall and pale sea stretch along the left. Soft sunlit tree canopy fills the top edge of the picture, real textured walkway fills the bottom edge, open sea fills the left edge and trees fill the right edge. Gentle hopeful natural morning light, realistic 35mm photography, no picture borders.

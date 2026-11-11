@@ -1,9 +1,0 @@
-subject_definitions:
-<Picture 1> is the facial identity and hairstyle reference for the adult man. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
-<Picture 3> is the facial identity and hairstyle reference for the adult woman. <Picture 4> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 2>.
-
-summary:
-A single realistic horizontal photograph from a quiet romantic film, natural materials and skin, physically coherent scene. The entire canvas is photographic content.
-
-detailed_description:
-[Shot 1] A full-width horizontal landscape photograph filling the complete image. Rear three-quarter view of the same two adult people WALKING ALONG a broad stone seaside promenade from LEFT toward RIGHT, parallel to the shoreline. Man in beige linen suit on the left, woman in cream knit and plaid skirt on the right. They are in the middle of the broad safe paved path, several meters from the low sea wall. The path clearly continues diagonally toward the RIGHT of the frame; neither person faces or walks toward the sea wall. Calm sea behind them, grasses near the far wall. 35mm lens, warm afternoon, whole bodies and shoes visible. No white side margins, no framing border.

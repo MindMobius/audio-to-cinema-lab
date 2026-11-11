@@ -20,6 +20,11 @@ cinema-lab = "cinema_lab.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+namespaces = false
 
 [tool.setuptools.package-data]
-cinema_lab = ["schemas/*.json", "templates/hyperframes/*.html"]
+cinema_lab = [
+  "resources/schemas/*.json",
+  "resources/recipes/*.json",
+  "resources/templates/production/*.md",
+]

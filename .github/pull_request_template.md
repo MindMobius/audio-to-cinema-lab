@@ -4,7 +4,8 @@
 
 ## Validation
 
-- [ ] `python -m cinema_lab validate projects/...`
+- [ ] `python -m cinema_lab validate .local/projects/...`
 - [ ] `pytest -q`
-- [ ] Media and private inputs are represented by manifests rather than committed directly.
+- [ ] `python tools/check_public_tree.py` after staging; staged diff reviewed.
+- [ ] Concrete production projects and their manifests stay local; public examples use synthetic data.
 - [ ] Provenance and third-party licenses are recorded.

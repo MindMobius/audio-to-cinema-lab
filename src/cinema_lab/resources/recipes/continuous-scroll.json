@@ -1,0 +1,37 @@
+{
+  "id": "continuous-scroll",
+  "title": "连续长卷 MV",
+  "summary": "多个相连场景共享世界坐标，局部动作独立播放，后期摄影机连续移动。",
+  "status": "documented-production-recipe",
+  "render_runner": null,
+  "composition_mode": "shared-world",
+  "caption_profile": "spatial-brackets",
+  "asset_requirements": [
+    "style-anchor",
+    "shared-horizon-and-ground",
+    "overlapping-panels",
+    "local-motion-crops",
+    "lyric-negative-space"
+  ],
+  "pilot_focus": [
+    "two-panel-seam",
+    "camera-speed-and-readable-lyrics",
+    "opening-to-first-vocal",
+    "local-motion-mask"
+  ],
+  "constraints": [
+    "Backgrounds, local clips, titles and spatial lyrics share the world camera.",
+    "Generate local motion with a locked camera; author the world camera in composition.",
+    "Neighbour panels share physical elements and a common horizon.",
+    "Use one play for local actions by default; record intentional loops explicitly.",
+    "Opening title is a world element when the opening belongs to the scroll.",
+    "Keep text editable and separate from generated imagery."
+  ],
+  "camera": {
+    "owner": "composition",
+    "direction": "right",
+    "continuous_from_frame": 0,
+    "handoff": "match-position-and-velocity",
+    "speed": "designed-per-audio-section-not-fixed-for-all-songs"
+  }
+}

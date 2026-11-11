@@ -1,0 +1,30 @@
+{
+  "id": "abstract-emotion",
+  "title": "抽象情绪 MV",
+  "summary": "将情绪转折映射为物件、空间和身体姿态的变化，先锁定抽象人物的视觉规则。",
+  "status": "documented-production-recipe",
+  "render_runner": null,
+  "composition_mode": "shot-timeline",
+  "caption_profile": "cinema-bilingual",
+  "asset_requirements": [
+    "silhouette-rules",
+    "wardrobe-variants",
+    "recurring-motifs",
+    "scene-layout"
+  ],
+  "pilot_focus": [
+    "silhouette-consistency",
+    "one-emotional-transformation",
+    "unwanted-face-and-object-check"
+  ],
+  "constraints": [
+    "Choose recurring visual motifs before generating shots.",
+    "Use an explicit face policy; faceless characters are a creative choice, not a universal default.",
+    "Preserve supplied lyric timing unless evidence supports a scoped correction.",
+    "Abstract style still requires intentional progression across musical sections."
+  ],
+  "camera": {
+    "owner": "shot-plan",
+    "continuity": "motif-and-space"
+  }
+}

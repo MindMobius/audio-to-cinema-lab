@@ -33,5 +33,16 @@ node_modules/
 .DS_Store
 Thumbs.db
 
-# Private source music and lyric files
-/source/music/
+# Private source inputs and machine-local tools
+/source/
+/third_party/
+/outputs/
+/renders/
+/deliveries/
+/models/
+
+# Concrete production projects remain local, including the legacy directory.
+/projects/
+
+# Legacy song-specific importer, preserved locally for historical recovery.
+/tools/import_project.py

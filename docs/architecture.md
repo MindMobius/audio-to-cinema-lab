@@ -57,7 +57,7 @@ The edit layer converts selected shot artifacts into an integer-frame timeline. 
 
 ### 7. Composition layer
 
-The composition layer adds presentation graphics, subtitles, title cards and final media treatment. HyperFrames is the current implementation for the sample project, but the composition contract is independent of it.
+The composition layer adds presentation graphics, subtitles, title cards and final media treatment. HyperFrames is the implementation used in local productions, but the composition contract is independent of it.
 
 ### 8. Verification layer
 
@@ -79,3 +79,9 @@ A local change should update only the affected layer and its dependent artifacts
 - audio replacement → analysis, plan, shots and edit timing require a new revision.
 
 The project manifest should record the current revision and the parent revision when an artifact is replaced.
+
+## Production recipes and local data
+
+`init --recipe` snapshots a documented method plus visual-direction, caption-profile and review-plan templates into `.local/projects/`. This scaffolds planning only; it is not a model runner. Production receipts and concrete assets remain local. Current implementation states are listed in [components](production/components.md).
+
+A planning project can have unknown audio duration. Once its status leaves `planning`, a positive measured duration is required. Generic metadata validation is separate from generation coverage and delivery acceptance; the latter checks remain a documented procedure until the common runner is implemented.

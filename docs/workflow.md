@@ -1,5 +1,7 @@
 # Production workflow
 
+For the current detailed MV procedure and reusable recipe entry points, see [the MV playbook](production/mv-playbook.md) and [recipes](production/recipes.md).
+
 This is the working procedure for an audio-driven project. Each stage should produce a reviewable artifact before the next stage expands the scope.
 
 ## 1. Register the audio
@@ -48,4 +50,4 @@ Run deterministic checks first. Then inspect opening, section transitions, all c
 
 ## 8. Package the project
 
-The Git repository contains contracts, manifests, scripts, prompts, workflows, lightweight previews and verification records. Large media, source recordings, model weights and machine caches remain local or use a separately configured artifact store. The project README must say exactly how to restore those inputs.
+The entire concrete production, including prompts, workflows, full lyrics, edit sources and checks, stays under ignored `.local/projects/`. Git receives generalized code, contracts, recipes and synthetic examples. Keep a local delivery manifest with source hashes and selected revisions. Missing shots must remain explicit; decode success alone is not artistic acceptance.

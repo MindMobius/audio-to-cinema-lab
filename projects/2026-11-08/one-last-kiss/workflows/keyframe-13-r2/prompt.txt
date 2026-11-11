@@ -1,8 +1,0 @@
-subject_definitions:
-This image contains only the objects, clothing or environment explicitly described below. There is no portrait or character sheet reference.
-
-summary:
-A single realistic horizontal photograph from a quiet romantic film, natural materials and skin, physically coherent scene. The entire canvas is photographic content.
-
-detailed_description:
-[Shot 1] A horizontal ground-level photograph filling the ENTIRE image edge to edge. A tight low crop of exactly one adult man's two black tailored trouser legs and black leather penny loafers crossing rain-wet asphalt. No face or torso in this crop. The left foot is planted in the foreground and the right foot is just lifting for the next step. A blurred white zebra crossing line runs diagonally in the background, with a single warm streetlamp reflected in a shallow puddle. 50mm lens, dusk blue-grey tones. The asphalt and shoes fill the full landscape composition, no studio background or side margins.

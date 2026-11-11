@@ -1,0 +1,29 @@
+{
+  "id": "cinematic-scenes",
+  "title": "分镜叙事 MV",
+  "summary": "按音乐段落和人物关系编排独立镜头，使用共享人物与场景资产保持连续。",
+  "status": "documented-production-recipe",
+  "render_runner": null,
+  "composition_mode": "shot-timeline",
+  "caption_profile": "cinema-bilingual",
+  "asset_requirements": [
+    "character-identity",
+    "wardrobe-variants",
+    "scene-layout",
+    "key-props"
+  ],
+  "pilot_focus": [
+    "same-character-across-two-shots",
+    "motion-and-face-detail",
+    "one-real-transition"
+  ],
+  "constraints": [
+    "Each shot has an audio interval and a concrete action.",
+    "Selected source duration must cover the edit or have an explicit retiming decision.",
+    "Missing clips block completion; automatic still fallback is disabled."
+  ],
+  "camera": {
+    "owner": "shot-plan",
+    "continuity": "per-transition"
+  }
+}

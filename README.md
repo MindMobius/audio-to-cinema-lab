@@ -1,89 +1,87 @@
 # Audio-to-Cinema Lab
 
-**声音驱动影像创作实验室**：从一段音频出发，解析它的文本、节奏、结构和情绪，把这些信息转化为可复用的角色资产、场景资产、镜头和完整视频工程。
+**声音驱动影像创作实验室**：从音频的文本、结构与情绪出发，设计视觉方向，建立人物和场景资产，再生成、编排和交付完整视频。
 
-这个仓库记录的是一套创作系统，而不是某个固定模型或某个固定软件的脚本。ASR、音频分析、角色卡、图像生成、视频生成、剪辑和合成都通过明确的输入输出连接起来；当某个工具效果更好时，可以替换对应适配器，而不改变作品工程的结构。
+当前重心是音乐 MV。工具可以替换；流程围绕音频、意象、资产、镜头、时间线和成片组织。分析提供依据，创作决定怎样表达，技术检查与审美验收分别记录。
 
-## 核心流程
+## 已经沉淀的内容
 
-```text
-音频母版
-  → 音频解析（ASR / 强制对齐 / 节奏 / 能量 / 段落）
-  → 创作解释（歌词意象 / 音乐结构 / 视觉风格 / 分镜）
-  → 内容资产（人物 / 着装 / 场景 / 物件）
-  → 镜头生成（图像首帧 → 视频镜头 → 选片与返修）
-  → 时间线（逐帧剪辑 / 字幕 / 片头 / 音频）
-  → HyperFrames 合成与审片
-  → 技术校验与交付
-```
+| 能力 | 当前状态 | 入口 |
+| --- | --- | --- |
+| NCM 输入恢复、批次回执 | 可执行 | [音频输入](docs/adapters/audio-decoding/README.md) |
+| 本地项目初始化、元数据校验、媒体校验与恢复 | 可执行；不等于视频生成 | `cinema-lab init / validate / media` |
+| 分镜叙事、抽象情绪、连续长卷 | 三种可复制的制作配方；生成器尚未统一封装 | [制作配方](docs/production/recipes.md) |
+| 风格约束、人物资产树、分层动作、字幕、片头 | 来自制作实践的模板与规范 | [MV 制作手册](docs/production/mv-playbook.md) |
+| 模型、LoRA、合成与审片经验 | 项目内已有运行记录；通用执行器待提炼 | [组件状态](docs/production/components.md) |
+| 返工原因、失效模式与提炼顺序 | 已整理，可持续补充 | [复盘与迭代计划](docs/production/lessons-and-roadmap.md) |
 
-音频是时间轴和创作入口，但音频分析结果与创作判断分开保存。分析工具可以告诉我们哪里有歌词、节拍和能量变化；它不会自动决定唯一的故事。故事、人物关系、视觉隐喻和选片保留在创作方案与审片记录中。
+这些配方负责建立创作和审查骨架，没有提供“一条命令自动生成完整 MV”的能力。每支作品的视觉语言仍需针对歌曲设计。
 
-## 第一个作品
-
-当前样例是宇多田ヒカル的 **ONE LAST KISS** 音乐视频，位于 [`projects/2026-11-08/one-last-kiss/`](projects/2026-11-08/one-last-kiss/)。它包含已验证的音频分析、歌词时间轴、角色资产登记、分镜、ComfyUI 工作流引用、逐帧剪辑信息和 HyperFrames 片头与双语字幕工程。
-
-成片使用用户提供的完整音频，片长约 4 分 19 秒，画面为 1920×1080 / 24 fps。大体积音频、视频、模型和 ComfyUI 缓存不提交到普通 Git 历史；项目 manifest 记录它们的来源、文件大小、哈希和本机恢复位置。
-
-## 项目目录约定
+## 工作流程
 
 ```text
-projects/
-└── YYYY-MM-DD/
-    └── project-slug/
-        ├── project.json       # 项目元数据、输入和交付信息
-        ├── audio/             # 音频解析结果；原始音频按 manifest 管理
-        ├── concept/           # 创作解释、风格、段落和分镜
-        ├── assets/             # 角色、场景和物件资产的可提交预览
-        ├── shots/              # 镜头表、提示词、选片和返修记录
-        ├── workflows/         # 实际使用的工具工作流与参数
-        ├── edit/               # 时间线、字幕和合成工程
-        ├── verification/      # 技术校验、审片记录和交付摘要
-        └── README.md
+音频母版与歌词
+  → 音频观察（文本 / 结构 / 节奏 / 能量）
+  → 视觉决策（情绪解释 / 风格 / 表现形式）
+  → 资产树（身份 / 着装 / 姿势 / 场景 / 物件）
+  → 最小样段（验证画风、动作、衔接、歌词阅读）
+  → 完整生成、选片与返修
+  → 后期编排（镜头 / 文字 / 片头片尾 / 完整音轨）
+  → 技术检查与画面审查
+  → 本地交付、通用经验回流
 ```
-
-日期目录比直接使用 `projects-日期-工程名` 更适合仓库结构：`projects` 是清晰的资源集合，日期是第二层索引，工程 slug 是第三层身份。目录名中的日期表示项目建立日期；返修和重新渲染通过 revision、时间戳和哈希记录，不通过复制出一套同名目录。
-
-如果同一天确实有两个同名工程，在 slug 后加短标识，例如 `one-last-kiss-directors-cut`，禁止覆盖已有工程。
 
 ## 快速开始
 
+在 Linux / WSL 的项目目录中执行：
+
 ```bash
-cd /path/to/audio-to-cinema-lab
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
 
-# 验证仓库内的项目清单和路径约束
-python -m cinema_lab validate projects/2026-11-08/one-last-kiss
+cinema-lab init --date 2026-11-11 --slug my-mv --title "作品名称" \
+  --recipe continuous-scroll
+cinema-lab validate .local/projects/2026-11-11/my-mv
 ```
 
-如果本机音频源是网易云音乐的 `.ncm` 容器，先通过音频输入适配器恢复成
-MP3/FLAC，再进入 ASR 和音乐分析。源文件和解码结果都留在被 Git 忽略的本地
-目录中：
+可选配方：`cinematic-scenes`（分镜叙事）、`abstract-emotion`（抽象情绪）、`continuous-scroll`（连续长卷）。不传 `--recipe` 时创建基础空工程。
+
+初始化会写入视觉方向模板、配方说明、字幕参考设置和审查计划。草稿可以尚未登记音频时长；离开 `planning` 状态后必须提供真实时长。校验通过只说明元数据符合约定。
+
+本地 NCM 音源：
 
 ```bash
-.venv/bin/python -m cinema_lab audio ncm inspect source/music
-.venv/bin/python -m cinema_lab audio ncm decode source/music \
+cinema-lab audio ncm inspect source/music
+cinema-lab audio ncm decode source/music \
   --output .local/audio/ncm-decoded --include-cover
 ```
 
-每次批处理会生成 JSON receipt，记录 NCM 元数据、输入输出哈希、耗时和失败项。
-详细边界和上游署名见 [`adapters/audio-decoding/README.md`](adapters/audio-decoding/README.md)。
+## 目录导航
 
-工具适配器需要在本机配置对应环境，例如 ComfyUI API、Whisper、HyperFrames CLI 或 FFmpeg。适配器必须在输出中记录版本、输入哈希、参数、耗时和生成结果；没有真实执行的内容不能写成“已复现”。
+- `src/cinema_lab/`：CLI、音频输入和通用项目能力。
+- `src/cinema_lab/resources/`：schema、制作配方、空白模板，随 Python 包分发。
+- `docs/`：工具、流程、制作经验和架构；见[文档入口](docs/README.md)。
+- `tests/`：合成数据测试；`tools/`：仓库维护与提交检查。
 
-## 工具定位
+## 仓库与作品分开
 
-- **ASR / 强制对齐**：把声音中的文字和时间对应起来。
-- **音频分析**：为无歌词音乐提供段落、节奏、动态和能量变化。
-- **人物与场景资产**：建立跨镜头可以引用的外观、服装、空间和物件。
-- **图像与视频生成适配器**：接受统一的镜头输入，输出可登记的首帧或视频素材。
-- **编辑与合成**：以逐帧时间线组织镜头、原始音频、字幕和片头。
-- **校验**：检查媒体规格、时间线连续性、字幕同步、原音轨一致性和资产引用。
+公共 Git 仓库存放可复用代码、配方、接口、文档和合成测试数据。
+**每一支具体 MV 的全部工程只留本地**，包括音频、歌词、图像、视频、提示词、工作流、字幕、生成回执及交付记录。
 
-本仓库不把 HyperFrames、ComfyUI、H3、Whisper 或任何单一模型当作系统本身。它们是当前作品中经过验证的实现组件。
+```text
+.local/projects/YYYY-MM-DD/project-slug/
+├── audio/
+├── concept/
+├── assets/
+├── shots/
+├── workflows/
+├── edit/
+└── verification/
+```
 
-## 状态
+日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。旧版 `projects/` 目录已改为忽略目录，本地文件保留；旧提交中的历史不会因此自动消失。
 
-当前版本是可复用工作流的第一版骨架，已将 `ONE LAST KISS` 作为完整生产记录迁入。下一步可以在不改变项目合同的前提下增加新的音频分析器、视频生成器、角色资产来源或合成器。
+详见[目录规则](docs/repository-layout.md)、[架构](docs/architecture.md)和[制作流程](docs/workflow.md)。
+
+提交前先暂存公共文件，再运行 `python tools/check_public_tree.py` 并审阅暂存差异。CI 也会检查 Git 树，拒绝具体工程、媒体、歌词字幕和模型文件。检查范围与例外处理见[目录规则](docs/repository-layout.md)。

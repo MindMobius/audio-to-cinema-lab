@@ -1,8 +1,0 @@
-subject_definitions:
-<Picture 1> is the facial identity and hairstyle reference for the adult woman. <Picture 2> is this SAME person's exact wardrobe and footwear reference. Preserve this person's identity; do not take the studio setting or pose from the references. This is <Subject 1>.
-
-summary:
-A single realistic horizontal photograph of a physically coherent scene, natural skin and materials. The entire canvas is photographic content.
-
-detailed_description:
-[Shot 1] One horizontal landscape photograph. The SAME adult woman with the exact face and long dark hair from the identity reference, wearing her exact light periwinkle pinstripe blazer and short skirt, narrow ivory-and-black neck scarf and cream boots. A medium-full view as she walks toward the right on a broad sunlit tree-lined coastal street after rain. She occupies the left third, with generous open street and pale sea to the right. Her body and both boots are visible. Tree canopy and pale sky fill the top edge, pavement fills the bottom edge, buildings extend to the left edge and sea to the right edge. Fresh gentle morning light, candid everyday posture, realistic 40mm landscape photography, no borders.

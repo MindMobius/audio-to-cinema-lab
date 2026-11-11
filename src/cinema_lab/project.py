@@ -10,9 +10,10 @@ from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
 from .io import inside, load, write
+from .recipes import load_recipe, scaffold
 
 SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
-SCHEMAS = Path(__file__).with_name("schemas")
+SCHEMAS = Path(__file__).with_name("resources") / "schemas"
 
 
 def schema_errors(name: str, value) -> list[str]:
@@ -22,13 +23,14 @@ def schema_errors(name: str, value) -> list[str]:
     return [f"{'/'.join(map(str, e.absolute_path)) or '/'}: {e.message}" for e in validator.iter_errors(value)]
 
 
-def create(root: Path, day: str, slug: str, title: str, kind: str) -> Path:
+def create(root: Path, day: str, slug: str, title: str, kind: str, *, recipe: str | None = None) -> Path:
     if not SLUG.fullmatch(slug):
         raise ValueError("slug must contain lowercase letters, digits and single hyphens")
     if date.fromisoformat(day).isoformat() != day:
         raise ValueError("date must be YYYY-MM-DD")
     if not title.strip():
         raise ValueError("title must not be empty")
+    selected_recipe = load_recipe(recipe) if recipe is not None else None
     project = inside(root, f"{day}/{slug}")
     project.parent.mkdir(parents=True, exist_ok=True)
     project.mkdir()  # Existing projects must never be overwritten.
@@ -36,10 +38,13 @@ def create(root: Path, day: str, slug: str, title: str, kind: str) -> Path:
         (project / folder).mkdir()
         (project / folder / "README.md").write_text(f"# {folder}\n\nProject: {title}\n", encoding="utf-8")
     write(project / "media.manifest.json", {"version": 1, "files": []})
+    artifacts = {"media_manifest": "media.manifest.json"}
+    if selected_recipe is not None:
+        artifacts.update(scaffold(project, selected_recipe))
     write(project / "project.json", {
         "id": slug, "created": day, "title": title, "kind": kind, "status": "planning", "revision": "r1",
         "audio": {"role": "unknown", "source_policy": "private-local"},
-        "artifacts": {"media_manifest": "media.manifest.json"},
+        "artifacts": artifacts,
         "reproducibility": {"mode": "local-inputs-required", "notes": "Register source audio and assets before production."},
     })
     (project / "README.md").write_text(f"# {title}\n\nCreated {day}. Audio, analysis and creative plan are pending.\n", encoding="utf-8")
@@ -137,7 +142,7 @@ def validate(path: Path) -> list[str]:
                     graph = inside(path, f"workflows/{shot[key]}/workflow.api.json")
                     if not graph.is_file():
                         errors.append(f"missing selected workflow: {shot[key]}")
-        # Public artifacts can be checked without restoring the private inputs.
+        # Registered metadata can be checked without restoring media bytes.
         if "public_files" in manifest:
             from .io import matches
             for item in manifest["public_files"]:

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/MindMobius/audio-to-cinema-lab/schemas/project.schema.json",
+  "title": "Audio to Cinema Project",
+  "type": "object",
+  "required": ["id", "created", "title", "status", "audio", "artifacts", "reproducibility"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "created": {"type": "string", "format": "date"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["planning", "production", "review", "delivered", "archived"]},
+    "audio": {"$ref": "audio-analysis.schema.json#/$defs/audioSource"},
+    "artifacts": {"type": "object", "additionalProperties": {"type": "string"}},
+    "reproducibility": {
+      "type": "object",
+      "required": ["mode", "notes"],
+      "properties": {"mode": {"enum": ["local-inputs-required", "fully-reproducible", "metadata-only"]}, "notes": {"type": "string"}}
+    }
+  },
+  "allOf": [{
+    "if": {"properties": {"status": {"not": {"const": "planning"}}}, "required": ["status"]},
+    "then": {"properties": {"audio": {"required": ["duration_seconds"]}}}
+  }],
+  "additionalProperties": true
+}
