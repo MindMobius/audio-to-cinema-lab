@@ -85,7 +85,7 @@ projects/YYYY-MM-DD/project-slug/
 └── verification/
 ```
 
-日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。`source/`、`library/`、`projects/`、`archive/` 都被 Git 忽略。旧 `.local/` 仅保留兼容路径，新的工程直接使用 `projects/`。旧提交中的历史不会因取消跟踪而自动消失。
+日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。`source/`、`library/`、`projects/`、`archive/` 都被 Git 忽略。工程统一使用 `projects/`，不保留旧目录或兼容链接。旧提交中的历史不会因取消跟踪而自动消失。
 
 详见[目录规则](docs/repository-layout.md)、[架构](docs/architecture.md)和[制作流程](docs/workflow.md)。
 

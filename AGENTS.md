@@ -11,12 +11,12 @@
 - Do not invent song translations or credits. Song titles come from confirmed metadata; opening credits appear at frame 0 when requested.
 - Keep tool-specific options in adapters and project config. State whether an integration is executable here, a recorded production workflow, or planned.
 - Test boundary validation, overwrite protection, timeline continuity and real adapter outputs. Do not claim generation reproducibility from a metadata-only check.
-- Preserve the original production folders. Migration is a verified copy, never a destructive move.
+- Preserve original asset bytes in a verified migration archive. Rewrite active references to canonical paths, then remove obsolete working directories and aliases.
 
 - Missing required shots must be reported; never silently substitute a still or loop to label an MV complete. Intentional held frames or loops need an explicit creative decision.
 - Confirmed source LRC timing is authoritative; instrumental openings are not evidence of subtitle misalignment.
 - Technical verification and visual acceptance are separate; state which time ranges were actually reviewed.
 
-- Use source/music/ for original music and LRC; library/music/ for prepared shared assets; projects/YYYY-MM-DD/<slug>/ for productions. .local/ paths are compatibility only.
+- Use source/music/ for original music and LRC; library/music/ for prepared shared assets; projects/YYYY-MM-DD/<slug>/ for productions. Do not create compatibility paths; active references must use these canonical directories.
 - Use music scan/prepare/bind to record versions; never match different audio masters by title alone or change confirmed LRC timing.
 - Keep previews and final exports in the WSL project. Export to Windows only for a requested delivery; do not create a new Downloads folder for each experiment.

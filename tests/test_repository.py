@@ -84,8 +84,8 @@ def test_timeline_coverage_and_caption_boundaries(project):
     manifest["audio"]["duration_seconds"] = 1.0
     manifest["artifacts"].update(edit_timeline="edit/timeline.json", caption_timing="edit/cues.json")
     write(project / "project.json", manifest)
-    files = [{"id": "audio", "source": "audio.wav", "path": ".local/media/audio.wav", "bytes": 0, "sha256": "0" * 64, "profiles": ["all"]},
-             {"id": "clip", "source": "clip.mp4", "path": ".local/media/clip.mp4", "bytes": 0, "sha256": "1" * 64, "profiles": ["all"]}]
+    files = [{"id": "audio", "source": "audio.wav", "path": "media/audio.wav", "bytes": 0, "sha256": "0" * 64, "profiles": ["all"]},
+             {"id": "clip", "source": "clip.mp4", "path": "media/clip.mp4", "bytes": 0, "sha256": "1" * 64, "profiles": ["all"]}]
     write(project / "media.manifest.json", {"version": 1, "files": files})
     timeline = {"total_frames": 24, "fps": 24, "audio": {"source": "audio.wav"}, "entries": [
         {"id": "a", "timeline_in_frames": 0, "duration_frames": 12, "source": "clip.mp4", "prepared_source": "clip.mp4"},

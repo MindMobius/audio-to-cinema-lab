@@ -1,5 +1,4 @@
 # Local inputs, generated media, runtime state and credentials
-.local/
 .env
 .env.*
 !.env.example

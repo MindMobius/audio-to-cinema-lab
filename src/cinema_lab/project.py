@@ -77,8 +77,8 @@ def validate(path: Path) -> list[str]:
         for item in manifest["files"]:
             # source is resolved against the external production workspace during restore.
             inside(path, item["path"])
-            if not item["path"].startswith(("media/", "audio/", ".local/media/")):
-                errors.append(f"project media must be under media/ or audio/ (legacy .local/media/ remains readable): {item['path']}")
+            if not item["path"].startswith(("media/", "audio/")):
+                errors.append(f"project media must be under media/ or audio/: {item['path']}")
 
             # A manifest id identifies a registration and must be unique. A physical
             # destination may appear more than once in an older manifest, but only

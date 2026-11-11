@@ -166,7 +166,7 @@ def main(argv: list[str] | None = None) -> int:
     decode_parser.add_argument("--conflict", choices=("rename", "skip", "overwrite"), default="rename")
     decode_parser.set_defaults(func=cmd_audio_ncm_decode)
 
-    layout = sub.add_parser("migrate-layout", help="plan or apply a verified copy of the old .local layout")
+    layout = sub.add_parser("migrate-layout", help="rewrite legacy paths and remove the obsolete workspace layout")
     layout.add_argument("--workspace", default=".")
     layout.add_argument("--apply", action="store_true")
     layout.set_defaults(func=cmd_layout)
