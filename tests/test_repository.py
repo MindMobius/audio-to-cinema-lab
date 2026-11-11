@@ -13,7 +13,7 @@ from cinema_lab.recipes import RECIPE_IDS, load_recipe
 
 @pytest.fixture
 def project(tmp_path):
-    return create(tmp_path / ".local/projects", "2026-11-11", "synthetic", "Synthetic fixture", "test")
+    return create(tmp_path / "projects", "2026-11-11", "synthetic", "Synthetic fixture", "test")
 
 
 def read(path):
@@ -34,8 +34,8 @@ def test_draft_accepts_unknown_duration_but_production_requires_measurement(proj
 def test_cli_defaults_to_local_root_and_copies_recipe(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     assert main(["init", "--date", "2026-11-11", "--slug", "demo", "--title", "Demo", "--recipe", "continuous-scroll"]) == 0
-    project = tmp_path / ".local/projects/2026-11-11/demo"
-    assert project.is_dir() and not (tmp_path / "projects").exists()
+    project = tmp_path / "projects/2026-11-11/demo"
+    assert project.is_dir() and not (tmp_path / ".local").exists()
     assert validate(project) == []
     manifest = read(project / "project.json")
     assert all((project / name).is_file() for name in manifest["artifacts"].values())

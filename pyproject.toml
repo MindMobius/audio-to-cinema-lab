@@ -28,3 +28,6 @@ cinema_lab = [
   "resources/recipes/*.json",
   "resources/templates/production/*.md",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -4,7 +4,7 @@
 
 ## Validation
 
-- [ ] `python -m cinema_lab validate .local/projects/...`
+- [ ] `python -m cinema_lab validate projects/...`
 - [ ] `pytest -q`
 - [ ] `python tools/check_public_tree.py` after staging; staged diff reviewed.
 - [ ] Concrete production projects and their manifests stay local; public examples use synthetic data.

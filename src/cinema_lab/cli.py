@@ -3,12 +3,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 from pathlib import Path
 
 from .media import audit, restore
 from .ncm import decode_many, inspect_file, collect_ncm_files
 from .project import create, validate
 from .recipes import RECIPE_IDS
+from .music import MusicLibrary
+from .layout import migrate
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
@@ -22,7 +25,23 @@ def cmd_validate(args: argparse.Namespace) -> int:
 
 
 def cmd_init(args: argparse.Namespace) -> int:
-    path = create(Path(args.root), args.date, args.slug, args.title, args.kind, recipe=args.recipe)
+    workspace = Path(args.workspace).expanduser().resolve()
+    root = Path(args.root).expanduser()
+    if not root.is_absolute():
+        root = workspace / root
+    if args.music:
+        library = MusicLibrary(workspace)
+        if root.resolve() != workspace / "projects":
+            raise ValueError("--music requires the workspace's projects directory")
+        asset = library.choose(library.read(), args.music)
+        if len(asset["lyrics_candidates"]) > 1:
+            raise ValueError("multiple lyric versions; initialize first, then music bind --lyrics-sha256")
+        # Prepare before creating the project so a failed decode or probe leaves
+        # no half-initialized production directory behind.
+        library.prepare(asset["id"])
+    path = create(root, args.date, args.slug, args.title, args.kind, recipe=args.recipe)
+    if args.music:
+        library.bind(asset["id"], path)
     print(path)
     return 0
 
@@ -66,6 +85,38 @@ def cmd_audio_ncm_decode(args: argparse.Namespace) -> int:
     return 0 if result["ok"] else 2
 
 
+def cmd_music(args: argparse.Namespace) -> int:
+    library = MusicLibrary(Path(args.workspace))
+    if args.music_command == "scan":
+        result = library.scan()
+    elif args.music_command == "list":
+        result = library.list_assets(args.query)
+        if not args.json:
+            for item in result:
+                print(f"{item['id'][:22]}  {item['state']:8}  {' / '.join(item['artists'])} — {item['title']}  "
+                      f"[{item['format']}; lyrics={item['lyric_versions']}; projects={len(item['projects'])}]")
+            return 0
+    elif args.music_command == "prepare":
+        result = library.prepare(args.selector)
+    elif args.music_command == "bind":
+        result = library.bind(args.selector, Path(args.project), lyrics_sha256=args.lyrics_sha256)
+    elif args.music_command == "import-receipt":
+        receipt = Path(args.receipt).expanduser()
+        if not receipt.is_absolute():
+            receipt = library.root / receipt
+        result = library.import_receipt(receipt)
+    elif args.music_command == "audit":
+        result = library.audit()
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 2 if isinstance(result, dict) and (result.get("ok") is False or result.get("errors")) else 0
+
+
+def cmd_layout(args: argparse.Namespace) -> int:
+    result = migrate(Path(args.workspace), apply=args.apply)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 2 if result.get("conflicts") else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="cinema-lab")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -75,7 +126,9 @@ def main(argv: list[str] | None = None) -> int:
     validate_parser.set_defaults(func=cmd_validate)
 
     init = sub.add_parser("init", help="create an empty dated project")
-    init.add_argument("--root", default=".local/projects")
+    init.add_argument("--root", default="projects")
+    init.add_argument("--music", help="catalog asset ID or unambiguous song name to pin")
+    init.add_argument("--workspace", default=".", help="Lab workspace containing source/music and library/music")
     init.add_argument("--recipe", choices=RECIPE_IDS, help="copy a production recipe; does not generate media")
     init.add_argument("--date", required=True)
     init.add_argument("--slug", required=True)
@@ -107,11 +160,41 @@ def main(argv: list[str] | None = None) -> int:
 
     decode_parser = ncm_sub.add_parser("decode", help="decode NCM files to MP3 or FLAC")
     decode_parser.add_argument("inputs", nargs="+", help="NCM files or directories")
-    decode_parser.add_argument("--output", default=".local/audio/ncm-decoded")
+    decode_parser.add_argument("--output", default="library/music/decoded-imports")
     decode_parser.add_argument("--receipt", help="receipt path; defaults inside the output directory")
     decode_parser.add_argument("--include-cover", action="store_true")
     decode_parser.add_argument("--conflict", choices=("rename", "skip", "overwrite"), default="rename")
     decode_parser.set_defaults(func=cmd_audio_ncm_decode)
 
+    layout = sub.add_parser("migrate-layout", help="plan or apply a verified copy of the old .local layout")
+    layout.add_argument("--workspace", default=".")
+    layout.add_argument("--apply", action="store_true")
+    layout.set_defaults(func=cmd_layout)
+
+    music = sub.add_parser("music", help="catalog, prepare and pin local music assets")
+    music.add_argument("--workspace", default=".", help="Lab workspace root")
+    music_sub = music.add_subparsers(dest="music_command", required=True)
+    music_sub.add_parser("scan", help="index source/music; preserve lyric versions").set_defaults(func=cmd_music)
+    listing = music_sub.add_parser("list", help="show songs, readiness and project usage")
+    listing.add_argument("query", nargs="?", default="")
+    listing.add_argument("--json", action="store_true")
+    listing.set_defaults(func=cmd_music)
+    prepare = music_sub.add_parser("prepare", help="prepare one song or verify and reuse its cached master")
+    prepare.add_argument("selector")
+    prepare.set_defaults(func=cmd_music)
+    bind = music_sub.add_parser("bind", help="pin audio and lyric versions in an existing project")
+    bind.add_argument("selector")
+    bind.add_argument("project")
+    bind.add_argument("--lyrics-sha256")
+    bind.set_defaults(func=cmd_music)
+    imports = music_sub.add_parser("import-receipt", help="adopt hash-verified outputs of a previous NCM batch")
+    imports.add_argument("receipt")
+    imports.set_defaults(func=cmd_music)
+    music_sub.add_parser("audit", help="verify cached music and all pinned project inputs").set_defaults(func=cmd_music)
+
     args = parser.parse_args(argv)
-    return args.func(args)
+    try:
+        return args.func(args)
+    except (ValueError, OSError, subprocess.SubprocessError) as error:
+        print(f"ERROR: {error}")
+        return 2

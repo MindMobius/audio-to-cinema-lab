@@ -1,5 +1,6 @@
 # 文档入口
 
+- [音乐资产管理](music-library.md)：入库、选歌、准备、版本锁定与复用。
 - [制作流程](workflow.md)：从音频到交付的步骤与审查点。
 - [MV 制作手册](production/mv-playbook.md)：多次制作积累的具体做法。
 - [制作配方](production/recipes.md)：分镜叙事、抽象情绪、连续长卷。

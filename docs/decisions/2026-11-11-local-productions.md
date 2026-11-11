@@ -1,8 +1,8 @@
-# Concrete productions stay local — 2026-11-11
+# Concrete productions stay local — historical decision — 2026-11-11
 
-This supersedes the earlier decision to include a concrete production as the repository sample. The user's explicit direction is to iterate on the Lab while every MV engineering project remains local.
+This historical decision superseded the earlier decision to include a concrete production as the repository sample. The user's explicit direction is to iterate on the Lab while every MV engineering project remains local.
 
-- Default new path: `.local/projects/YYYY-MM-DD/<slug>/`.
+- Historical default in this record: `.local/projects/YYYY-MM-DD/<slug>/`. The current path is `projects/YYYY-MM-DD/<slug>/`; see [the current music and projects decision](2026-11-11-music-library-and-projects.md).
 - Preserve the original date and use revisions for re-renders.
 - Ignore the legacy `projects/` path; remove its existing entries from the Git index without deleting local files.
 - Replace song-dependent repository tests with synthetic fixtures.

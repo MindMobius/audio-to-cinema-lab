@@ -8,7 +8,7 @@
 
 | 能力 | 当前状态 | 入口 |
 | --- | --- | --- |
-| NCM 输入恢复、批次回执 | 可执行 | [音频输入](docs/adapters/audio-decoding/README.md) |
+| 音乐入库、按需解码、缓存复用、工程版本锁定 | 可执行 | [音乐资产管理](docs/music-library.md) |
 | 本地项目初始化、元数据校验、媒体校验与恢复 | 可执行；不等于视频生成 | `cinema-lab init / validate / media` |
 | 分镜叙事、抽象情绪、连续长卷 | 三种可复制的制作配方；生成器尚未统一封装 | [制作配方](docs/production/recipes.md) |
 | 风格约束、人物资产树、分层动作、字幕、片头 | 来自制作实践的模板与规范 | [MV 制作手册](docs/production/mv-playbook.md) |
@@ -42,20 +42,25 @@ pip install -e .
 
 cinema-lab init --date 2026-11-11 --slug my-mv --title "作品名称" \
   --recipe continuous-scroll
-cinema-lab validate .local/projects/2026-11-11/my-mv
+cinema-lab validate projects/2026-11-11/my-mv
 ```
 
 可选配方：`cinematic-scenes`（分镜叙事）、`abstract-emotion`（抽象情绪）、`continuous-scroll`（连续长卷）。不传 `--recipe` 时创建基础空工程。
 
 初始化会写入视觉方向模板、配方说明、字幕参考设置和审查计划。草稿可以尚未登记音频时长；离开 `planning` 状态后必须提供真实时长。校验通过只说明元数据符合约定。
 
-本地 NCM 音源：
+管理本地音乐储备：
 
 ```bash
-cinema-lab audio ncm inspect source/music
-cinema-lab audio ncm decode source/music \
-  --output .local/audio/ncm-decoded --include-cover
+cinema-lab music scan
+cinema-lab music list
+cinema-lab music prepare "歌曲名称"
+cinema-lab init --date 2026-11-11 --slug another-mv --title "作品名称" \
+  --recipe abstract-emotion --music "歌曲名称"
+cinema-lab music audit
 ```
+
+把原始音频和同名 LRC 放进 `source/music/`。扫描不批量解码；选中歌曲时按需准备，已校验的解码结果直接复用。工程保存所选音频和歌词的独立副本与哈希，库里新增版本不会修改已有作品。音乐多版本、历史解码导入与命令详见[音乐资产管理](docs/music-library.md)。
 
 ## 目录导航
 
@@ -70,7 +75,7 @@ cinema-lab audio ncm decode source/music \
 **每一支具体 MV 的全部工程只留本地**，包括音频、歌词、图像、视频、提示词、工作流、字幕、生成回执及交付记录。
 
 ```text
-.local/projects/YYYY-MM-DD/project-slug/
+projects/YYYY-MM-DD/project-slug/
 ├── audio/
 ├── concept/
 ├── assets/
@@ -80,7 +85,7 @@ cinema-lab audio ncm decode source/music \
 └── verification/
 ```
 
-日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。旧版 `projects/` 目录已改为忽略目录，本地文件保留；旧提交中的历史不会因此自动消失。
+日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。`source/`、`library/`、`projects/`、`archive/` 都被 Git 忽略。旧 `.local/` 仅保留兼容路径，新的工程直接使用 `projects/`。旧提交中的历史不会因取消跟踪而自动消失。
 
 详见[目录规则](docs/repository-layout.md)、[架构](docs/architecture.md)和[制作流程](docs/workflow.md)。
 

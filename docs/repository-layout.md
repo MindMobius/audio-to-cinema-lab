@@ -1,49 +1,42 @@
 # 目录与提交边界
 
-公共仓库按照职责组织：
+工作区按内容职责组织，不再把日常工程放进 `.local/projects/`。
 
 ```text
+source/music/                  原始音乐与 LRC，仅本地
+library/music/                 共享音乐目录、解码结果、歌词版本，仅本地
+library/legacy/                保留可追踪关系的旧共享数据，仅本地
+projects/YYYY-MM-DD/<slug>/     每支 MV 的全部工程，仅本地
+archive/                       迁移原件与维护记录，仅本地
 src/cinema_lab/                 CLI 与可执行实现
   resources/
     schemas/                   通用数据契约
-    recipes/                   可复制的制作配方
-    templates/production/      视觉方向等空白模板
-docs/
-  adapters/                    各环节的工具说明与能力边界
-  pipelines/                   流程编排说明
-  production/                  制作手册、配方、经验与路线图
-  decisions/                   目录、数据与架构决策
-tests/                         使用合成数据的测试
+    recipes/                   制作配方
+    templates/production/      空白模板
+docs/                          架构、工具、流程和制作经验
+tests/                         合成数据测试
 tools/                         仓库维护与提交检查
 .github/                       CI 与贡献模板
 ```
 
-`docs/adapters/` 与 `docs/pipelines/` 是文档目录，不表示对应执行器已实现。可执行代码放在 `src/cinema_lab/`。包内资源随 wheel 分发，运行时不依赖仓库根目录。
+日期表示工程创建日期，后续渲染使用 revision。默认 `cinema-lab init` 写入 `projects/`，拒绝覆盖同名工程。歌曲从[音乐资产库](music-library.md)选择并锁定；媒体、歌词、提示词、工作流、字幕、生成回执、交付视频全部留本地。
 
-## 每支作品只留本地
+## 旧目录迁移
 
-```text
-.local/projects/YYYY-MM-DD/project-slug/
-  audio/
-  concept/
-  assets/
-  shots/
-  workflows/
-  edit/
-  verification/
+```bash
+cinema-lab migrate-layout
+cinema-lab migrate-layout --apply
 ```
 
-日期表示创建日期，工程名保持稳定，后续渲染使用 revision。`cinema-lab init` 默认写入 `.local/projects`，拒绝覆盖已有工程。
+默认只输出计划。执行时先检查冲突和容量，复制每个文件并校验源、目标哈希，全部成功后才归档原件。不同内容的同名文件会阻止迁移，不覆盖任何一份。旧绝对路径通过 `.local/` 下的兼容链接继续有效，实际工作文件统一位于新目录；新代码和操作使用规范路径。
 
-整支作品的工程均留本地，包括音频、完整歌词、图片、视频、提示词、工作流、字幕、时间线、生成回执和检查记录。登记原始文件哈希与选定版本；向 Lab 提炼时只保留通用方法、空白模板和合成测试数据。
+原件保存在 `archive/layout-<时间>/original-local/`，迁移清单记录路径、哈希及软链接映射。旧回执保留原记录，不为了改变展示路径重写历史证据。原文件归档不会主动删除下载目录中的历史交付副本。
 
-旧版 `projects/`、歌曲专用 `tools/import_project.py` 保留在原位置并取消 Git 跟踪。原始音源 `source/`、本机第三方工具 `third_party/` 与运行产物也被忽略。不要为了目录美观移动或删除仍被旧工程引用的文件。
+歌曲专用旧导入脚本保留本地且不进入 Git。本机第三方工具和运行数据仍忽略。目录边界由 Git 规则与提交检查控制，不依赖隐藏目录。
 
-取消跟踪只影响后续提交，不会删除历史提交中的工程内容。本次整理不改写 Git 历史。参见[决策记录](decisions/2026-11-11-local-productions.md)。
+参见[当前决策](decisions/2026-11-11-music-library-and-projects.md)。旧决策保留历史上下文，由此规则替代。取消跟踪不删除历史提交，本次不改写 Git 历史。
 
 ## 提交前检查
-
-先明确暂存需要发布的代码、文档与通用模板，再执行：
 
 ```bash
 python tools/check_public_tree.py
@@ -51,6 +44,6 @@ git diff --cached --check
 git diff --cached --stat
 ```
 
-检查脚本读取 **Git 暂存区**，不会遍历本地工程。它拒绝工程和运行目录、常见媒体/歌词字幕/模型/压缩包、具体工程清单、符号链接/子模块、未解决的合并条目，以及超过 1 MiB 的文件。`git add -f` 不能绕过这些检查。CI 执行同一脚本；本地需主动运行，并未安装 Git hook。
+先暂存公共代码与文档，再检查和审阅差异。脚本检查 Git 暂存区，拒绝 `source/`、`library/`、`projects/`、`archive/`、`.local/` 等本地数据目录、媒体/歌词/模型/压缩包、具体工程清单、符号链接和超过 1 MiB 的文件。强制添加也会被检查拦下，CI 执行相同策略。
 
-这是一道结构检查，不能识别任意文件内夹带的歌曲或项目内容。仍需人工查看暂存差异；新增公共目录或确需发布的素材类型应与检查策略一起评审。`.gitignore`、结构检查和差异审查共同维护提交边界。
+结构检查不能识别任意合法文本文件里夹带的具体作品内容；仍需审阅暂存差异。未安装本地 Git hook。

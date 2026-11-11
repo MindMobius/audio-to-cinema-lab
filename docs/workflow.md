@@ -50,4 +50,4 @@ Run deterministic checks first. Then inspect opening, section transitions, all c
 
 ## 8. Package the project
 
-The entire concrete production, including prompts, workflows, full lyrics, edit sources and checks, stays under ignored `.local/projects/`. Git receives generalized code, contracts, recipes and synthetic examples. Keep a local delivery manifest with source hashes and selected revisions. Missing shots must remain explicit; decode success alone is not artistic acceptance.
+The entire concrete production, including prompts, workflows, full lyrics, edit sources and checks, stays under ignored `projects/`. Git receives generalized code, contracts, recipes and synthetic examples. Keep a local delivery manifest with source hashes and selected revisions. Missing shots must remain explicit; decode success alone is not artistic acceptance.

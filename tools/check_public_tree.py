@@ -12,7 +12,7 @@ PUBLIC_ROOT_FILES = {
     "THIRD_PARTY_NOTICES.md", "pyproject.toml",
 }
 PRIVATE_DIRECTORIES = {
-    ".local", "projects", "source", "outputs", "renders", "deliveries", "models",
+    ".local", "projects", "source", "library", "archive", "outputs", "renders", "deliveries", "models",
     ".venv", "node_modules", "__pycache__", "third_party", "build", "dist",
 }
 PRIVATE_FILENAMES = {

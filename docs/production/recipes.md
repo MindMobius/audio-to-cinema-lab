@@ -15,7 +15,7 @@ cinema-lab init --date 2026-11-11 --slug experiment --title "作品名称" \
   --recipe abstract-emotion
 ```
 
-默认写入 `.local/projects/2026-11-11/experiment/`。重复名称会报错，防止覆盖。日期是创建日期，后续返修仍属于原工程。
+默认写入 `projects/2026-11-11/experiment/`。重复名称会报错，防止覆盖。日期是创建日期，后续返修仍属于原工程。
 
 新增四份产物：
 

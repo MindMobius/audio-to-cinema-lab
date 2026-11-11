@@ -77,8 +77,8 @@ def validate(path: Path) -> list[str]:
         for item in manifest["files"]:
             # source is resolved against the external production workspace during restore.
             inside(path, item["path"])
-            if not item["path"].startswith(".local/media/"):
-                errors.append(f"private media must be under .local/media/: {item['path']}")
+            if not item["path"].startswith(("media/", "audio/", ".local/media/")):
+                errors.append(f"project media must be under media/ or audio/ (legacy .local/media/ remains readable): {item['path']}")
 
             # A manifest id identifies a registration and must be unique. A physical
             # destination may appear more than once in an older manifest, but only
@@ -142,6 +142,14 @@ def validate(path: Path) -> list[str]:
                     graph = inside(path, f"workflows/{shot[key]}/workflow.api.json")
                     if not graph.is_file():
                         errors.append(f"missing selected workflow: {shot[key]}")
+        if "music_selection" in data["artifacts"]:
+            from .io import matches
+            selection = load(inside(path, data["artifacts"]["music_selection"]))
+            for kind in ("audio", "lyrics"):
+                if kind in selection and not matches(inside(path, selection[kind]["path"]), selection[kind]):
+                    errors.append(f"pinned music {kind} is missing or changed")
+            if data["audio"].get("sha256") != selection["audio"]["sha256"]:
+                errors.append("project audio does not match pinned music version")
         # Registered metadata can be checked without restoring media bytes.
         if "public_files" in manifest:
             from .io import matches

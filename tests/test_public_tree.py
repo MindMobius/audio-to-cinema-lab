@@ -41,6 +41,8 @@ def test_ignored_local_production_is_not_read_or_rejected(repository):
     ".local/projects/2026-11-11/sample/project.json",
     "projects/2026-11-11/sample/concept/notes.md",
     "source/music/notes.txt",
+    "library/music/index.json", "archive/layout/files.json",
+    "docs/library/music/index.json",
     "docs/projects/2026-11-11/sample/notes.md",
     "docs/export.MP4", "docs/audio.flac", "docs/lyrics.lrc", "docs/captions.srt",
     "src/weights.safetensors", "tools/project.json", "tools/workflow.api.json",

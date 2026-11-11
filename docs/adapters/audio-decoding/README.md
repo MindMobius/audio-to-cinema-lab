@@ -9,12 +9,14 @@ documented and implemented by [NCM Breaker](https://github.com/KaffuAlcaid/ncmBr
 account, or modify the original source file. It accepts files that the user is
 allowed to process and writes decoded media to a local output directory.
 
+For normal song selection use the [music library](../../music-library.md): it verifies and reuses prepared audio and pins the chosen versions in a project. The lower-level batch decoder remains available for imports.
+
 Use the adapter from the project root:
 
 ```bash
 .venv/bin/python -m cinema_lab audio ncm inspect source/music
 .venv/bin/python -m cinema_lab audio ncm decode source/music \
-  --output .local/audio/ncm-decoded --include-cover
+  --output library/music/decoded-imports --include-cover
 ```
 
 The decoder checks the NCM marker, restores the embedded metadata and cover

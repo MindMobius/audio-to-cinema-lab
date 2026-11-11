@@ -41,8 +41,12 @@ Thumbs.db
 /deliveries/
 /models/
 
-# Concrete production projects remain local, including the legacy directory.
+# Every concrete production project stays local.
 /projects/
 
 # Legacy song-specific importer, preserved locally for historical recovery.
 /tools/import_project.py
+
+# Shared local music assets and verified migration backups
+/library/
+/archive/
