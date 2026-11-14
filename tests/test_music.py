@@ -198,7 +198,12 @@ def test_binding_cannot_follow_input_symlink_outside_project(library, tmp_path):
     project = create(library.root / "projects", "2026-11-11", "demo", "Synthetic", "test")
     outside = tmp_path / "outside"
     outside.mkdir()
-    (project / "audio/inputs").symlink_to(outside, target_is_directory=True)
+    try:
+        (project / "audio/inputs").symlink_to(outside, target_is_directory=True)
+    except OSError as error:
+        if getattr(error, "winerror", None) == 1314:
+            pytest.skip("Windows symlink privilege is unavailable")
+        raise
     with pytest.raises(ValueError, match="symlink escapes"):
         library.bind("Song", project)
     assert list(outside.iterdir()) == []

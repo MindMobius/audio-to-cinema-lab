@@ -1,12 +1,10 @@
 # Project layout decision — 2026-11-08
 
-Superseded for repository visibility and default root by [2026-11-11](2026-11-11-local-productions.md). The date/slug structure remains.
-
 ## Decision
 
 Use `projects/YYYY-MM-DD/project-slug/`.
 
-For the first migrated work:
+Example:
 
 ```text
 projects/2026-11-08/one-last-kiss/

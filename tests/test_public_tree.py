@@ -23,14 +23,13 @@ def put(repo, name, content=b"synthetic fixture\n"):
 @pytest.fixture
 def repository(tmp_path):
     git(tmp_path, "init")
-    put(tmp_path, ".gitignore", b".local/\nprojects/\n*.mp4\n.env\n")
+    put(tmp_path, ".gitignore", b"projects/\n*.mp4\n.env\n")
     put(tmp_path, "README.md")
     git(tmp_path, "add", ".gitignore", "README.md")
     return tmp_path
 
 
 def test_ignored_local_production_is_not_read_or_rejected(repository):
-    put(repository, ".local/projects/2026-11-11/sample/project.json")
     put(repository, "projects/2026-11-11/sample/edit/timeline.json")
     put(repository, ".env")
     put(repository, "docs/untracked.mp4")
@@ -38,15 +37,14 @@ def test_ignored_local_production_is_not_read_or_rejected(repository):
 
 
 @pytest.mark.parametrize("name", [
-    ".local/projects/2026-11-11/sample/project.json",
     "projects/2026-11-11/sample/concept/notes.md",
     "source/music/notes.txt",
-    "library/music/index.json", "archive/layout/files.json",
+    "library/music/index.json",
     "docs/library/music/index.json",
     "docs/projects/2026-11-11/sample/notes.md",
     "docs/export.MP4", "docs/audio.flac", "docs/lyrics.lrc", "docs/captions.srt",
     "src/weights.safetensors", "tools/project.json", "tools/workflow.api.json",
-    "tools/import_project.py", ".env", "docs/.env.example",
+    ".env", "docs/.env.example",
 ])
 def test_forced_addition_cannot_bypass_publication_policy(repository, name):
     put(repository, name)
@@ -66,9 +64,13 @@ def test_generic_schemas_recipes_and_synthetic_examples_are_allowed(repository):
 
 
 def test_symlink_cannot_publish_a_local_project_reference(repository):
-    put(repository, ".local/private.md")
-    (repository / "docs").mkdir()
-    (repository / "docs/reference.md").symlink_to("../.local/private.md")
+    private = put(repository, "docs/private.md")
+    try:
+        (repository / "docs/reference.md").symlink_to(private)
+    except OSError as error:
+        if getattr(error, "winerror", None) == 1314:
+            pytest.skip("Windows symlink privilege is unavailable")
+        raise
     git(repository, "add", "docs/reference.md")
     assert any("symlinks" in issue for issue in check_index(repository))
 

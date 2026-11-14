@@ -1,6 +1,6 @@
 # Audio-to-Cinema Lab
 
-- Run development, tests and dependency installs in Linux / WSL Ubuntu. Use a project virtual environment.
+- Run development, tests and dependency installs natively on Windows using PowerShell. Use the project `.venv` and tools under `C:\AI`.
 - Read README.md and docs/architecture.md before changing contracts or adapters.
 - Concrete projects live at ignored projects/YYYY-MM-DD/<slug>/; the date is the creation date, not the latest render date. Never silently overwrite a project or an artifact.
 - Audio is the master timeline. Use integer frames for editorial timing; preserve the supplied audio unless the user asks to process it.
@@ -11,12 +11,13 @@
 - Do not invent song translations or credits. Song titles come from confirmed metadata; opening credits appear at frame 0 when requested.
 - Keep tool-specific options in adapters and project config. State whether an integration is executable here, a recorded production workflow, or planned.
 - Test boundary validation, overwrite protection, timeline continuity and real adapter outputs. Do not claim generation reproducibility from a metadata-only check.
-- Preserve original asset bytes in a verified migration archive. Rewrite active references to canonical paths, then remove obsolete working directories and aliases.
+- Preserve original asset bytes in the project workspace or cold archive. Active references must use canonical Windows paths only.
 
 - Missing required shots must be reported; never silently substitute a still or loop to label an MV complete. Intentional held frames or loops need an explicit creative decision.
 - Confirmed source LRC timing is authoritative; instrumental openings are not evidence of subtitle misalignment.
 - Technical verification and visual acceptance are separate; state which time ranges were actually reviewed.
 
-- Use source/music/ for original music and LRC; library/music/ for prepared shared assets; projects/YYYY-MM-DD/<slug>/ for productions. Do not create compatibility paths; active references must use these canonical directories.
+- `C:` is the active NVMe workspace for code, current project data and frequently used assets. `D:\AI-Archive` is cold storage only and must not be a runtime dependency.
+- Use `source/music/` for original music and LRC; `library/music/` for prepared shared assets; `projects/YYYY-MM-DD/<slug>/` for productions. Do not create alternative layouts, aliases or compatibility paths.
 - Use music scan/prepare/bind to record versions; never match different audio masters by title alone or change confirmed LRC timing.
-- Keep previews and final exports in the WSL project. Export to Windows only for a requested delivery; do not create a new Downloads folder for each experiment.
+- Keep previews and final exports inside the native Windows project. Copy requested deliverables to the current chat output directory; do not create a new Downloads folder for each experiment.

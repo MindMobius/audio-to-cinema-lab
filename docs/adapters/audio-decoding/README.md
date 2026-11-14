@@ -13,9 +13,9 @@ For normal song selection use the [music library](../../music-library.md): it ve
 
 Use the adapter from the project root:
 
-```bash
-.venv/bin/python -m cinema_lab audio ncm inspect source/music
-.venv/bin/python -m cinema_lab audio ncm decode source/music \
+```powershell
+.\.venv\Scripts\python.exe -m cinema_lab audio ncm inspect source/music
+.\.venv\Scripts\python.exe -m cinema_lab audio ncm decode source/music `
   --output library/music/decoded-imports --include-cover
 ```
 
@@ -25,6 +25,6 @@ containing input/output hashes, metadata, timing and failures. It never places
 source recordings, decoded media or full lyric files into the public Git
 history; the repository ignores `source/music/` and the generated media paths.
 
-The adapter is executable in the current WSL environment. It requires the
-Python `cryptography` package and FFmpeg remains a separate downstream tool for
+The adapter runs in the native Windows PowerShell environment. It requires the
+Python `cryptography` package; FFmpeg remains a separate downstream tool for
 media validation and analysis.

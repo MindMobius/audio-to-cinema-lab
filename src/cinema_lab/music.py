@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from datetime import datetime, timezone
-import fcntl
+from filelock import FileLock
 from datetime import date
 import json
 import os
@@ -69,19 +69,15 @@ class MusicLibrary:
     @contextmanager
     def locked(self):
         self.directory.mkdir(parents=True, exist_ok=True)
-        with (self.directory / ".lock").open("a") as handle:
-            fcntl.flock(handle, fcntl.LOCK_EX)
-            try:
-                yield
-            finally:
-                fcntl.flock(handle, fcntl.LOCK_UN)
+        with FileLock(str(self.directory / ".lock")):
+            yield
 
     def read(self) -> dict:
         if not self.index_path.exists():
             return {"version": 1, "source_root": "source/music", "assets": {}}
         data = load(self.index_path)
         if data.get("version") != 1 or not isinstance(data.get("assets"), dict):
-            raise ValueError("unsupported music index; preserve it and migrate explicitly")
+            raise ValueError("unsupported music index; preserve it and rebuild explicitly")
         return data
 
     def save(self, index: dict) -> None:

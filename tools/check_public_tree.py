@@ -12,12 +12,12 @@ PUBLIC_ROOT_FILES = {
     "THIRD_PARTY_NOTICES.md", "pyproject.toml",
 }
 PRIVATE_DIRECTORIES = {
-    ".local", "projects", "source", "library", "archive", "outputs", "renders", "deliveries", "models",
+    "projects", "source", "library", "outputs", "renders", "deliveries", "models",
     ".venv", "node_modules", "__pycache__", "third_party", "build", "dist",
 }
 PRIVATE_FILENAMES = {
     "project.json", "media.manifest.json", "timeline.json", "submission.json",
-    "workflow.api.json", "workflow.ui.json", "import_project.py",
+    "workflow.api.json", "workflow.ui.json",
 }
 PRIVATE_SUFFIXES = {
     # Source and rendered media, full lyric/subtitle files, models and archives.

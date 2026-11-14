@@ -35,7 +35,7 @@ def test_cli_defaults_to_local_root_and_copies_recipe(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     assert main(["init", "--date", "2026-11-11", "--slug", "demo", "--title", "Demo", "--recipe", "continuous-scroll"]) == 0
     project = tmp_path / "projects/2026-11-11/demo"
-    assert project.is_dir() and not (tmp_path / ".local").exists()
+    assert project.is_dir()
     assert validate(project) == []
     manifest = read(project / "project.json")
     assert all((project / name).is_file() for name in manifest["artifacts"].values())

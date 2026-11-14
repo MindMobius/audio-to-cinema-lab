@@ -33,14 +33,14 @@
 
 ## 快速开始
 
-在 Linux / WSL 的项目目录中执行：
+在 Windows PowerShell 的项目目录中执行：
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e .
+```powershell
+uv venv .venv --seed
+.\.venv\Scripts\Activate.ps1
+uv pip install -e . pytest
 
-cinema-lab init --date 2026-11-11 --slug my-mv --title "作品名称" \
+cinema-lab init --date 2026-11-11 --slug my-mv --title "作品名称" `
   --recipe continuous-scroll
 cinema-lab validate projects/2026-11-11/my-mv
 ```
@@ -51,11 +51,11 @@ cinema-lab validate projects/2026-11-11/my-mv
 
 管理本地音乐储备：
 
-```bash
+```powershell
 cinema-lab music scan
 cinema-lab music list
 cinema-lab music prepare "歌曲名称"
-cinema-lab init --date 2026-11-11 --slug another-mv --title "作品名称" \
+cinema-lab init --date 2026-11-11 --slug another-mv --title "作品名称" `
   --recipe abstract-emotion --music "歌曲名称"
 cinema-lab music audit
 ```
@@ -85,7 +85,7 @@ projects/YYYY-MM-DD/project-slug/
 └── verification/
 ```
 
-日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。`source/`、`library/`、`projects/`、`archive/` 都被 Git 忽略。工程统一使用 `projects/`，不保留旧目录或兼容链接。旧提交中的历史不会因取消跟踪而自动消失。
+日期表示作品创建日期；修改通过 revision 管理。初始化拒绝覆盖同名工程。`source/`、`library/` 和 `projects/` 都被 Git 忽略。工程统一使用 `projects/`，不提供其他目录布局或兼容入口。
 
 详见[目录规则](docs/repository-layout.md)、[架构](docs/architecture.md)和[制作流程](docs/workflow.md)。
 

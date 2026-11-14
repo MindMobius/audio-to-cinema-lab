@@ -11,7 +11,6 @@ from .ncm import decode_many, inspect_file, collect_ncm_files
 from .project import create, validate
 from .recipes import RECIPE_IDS
 from .music import MusicLibrary
-from .layout import migrate
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
@@ -111,12 +110,6 @@ def cmd_music(args: argparse.Namespace) -> int:
     return 2 if isinstance(result, dict) and (result.get("ok") is False or result.get("errors")) else 0
 
 
-def cmd_layout(args: argparse.Namespace) -> int:
-    result = migrate(Path(args.workspace), apply=args.apply)
-    print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 2 if result.get("conflicts") else 0
-
-
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="cinema-lab")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -165,11 +158,6 @@ def main(argv: list[str] | None = None) -> int:
     decode_parser.add_argument("--include-cover", action="store_true")
     decode_parser.add_argument("--conflict", choices=("rename", "skip", "overwrite"), default="rename")
     decode_parser.set_defaults(func=cmd_audio_ncm_decode)
-
-    layout = sub.add_parser("migrate-layout", help="rewrite legacy paths and remove the obsolete workspace layout")
-    layout.add_argument("--workspace", default=".")
-    layout.add_argument("--apply", action="store_true")
-    layout.set_defaults(func=cmd_layout)
 
     music = sub.add_parser("music", help="catalog, prepare and pin local music assets")
     music.add_argument("--workspace", default=".", help="Lab workspace root")
